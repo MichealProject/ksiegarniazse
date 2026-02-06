@@ -13,7 +13,7 @@ Projekt księgarni internetowej stworzony w ramach pracy zespołowej. Aplikacja 
 - HTML
 - CSS
 - JavaScript  
-*(w razie potrzeby możesz dopisać frameworki lub backend)*
+
 
 ## 👥 Twórcy projektu
 
