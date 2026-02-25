@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sty 23, 2026 at 11:42 AM
--- Wersja serwera: 10.4.32-MariaDB
--- Wersja PHP: 8.2.12
+-- Czas generowania: 25 Lut 2026, 09:06
+-- Wersja serwera: 10.4.27-MariaDB
+-- Wersja PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bookdb`
+-- Baza danych: `bookdb`
 --
 
 DELIMITER $$
@@ -99,6 +99,32 @@ CREATE TABLE `addresses` (
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `login_code` varchar(255) NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `level` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
+  `programmer` tinyint(1) NOT NULL DEFAULT 0,
+  `banned` tinyint(1) NOT NULL DEFAULT 0,
+  `is_accepted_regulations` tinyint(1) NOT NULL DEFAULT 0,
+  `mail` varchar(255) NOT NULL DEFAULT '',
+  `name` varchar(120) NOT NULL DEFAULT '',
+  `surname` varchar(120) NOT NULL DEFAULT '',
+  `state` varchar(120) NOT NULL DEFAULT '',
+  `pesel` char(11) NOT NULL DEFAULT '',
+  `address` varchar(255) NOT NULL DEFAULT '',
+  `phone` varchar(50) NOT NULL DEFAULT '',
+  `last_login_at` datetime DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `authors`
 --
 
@@ -109,7 +135,7 @@ CREATE TABLE `authors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Dumping data for table `authors`
+-- Zrzut danych tabeli `authors`
 --
 
 INSERT INTO `authors` (`id_author`, `name`, `surname`) VALUES
@@ -151,30 +177,30 @@ CREATE TABLE `books` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Dumping data for table `books`
+-- Zrzut danych tabeli `books`
 --
 
 INSERT INTO `books` (`id_book`, `title`, `description`, `price`, `stock`, `id_category`, `id_supplier`) VALUES
-(1, 'Wiedzmin', 'Fantasy book', 49.99, 100, 1, 4),
-(2, 'Hobbit', 'Fantasy book', 39.99, 80, 1, 1),
-(3, 'Gra o Tron', 'Fantasy book', 59.99, 70, 1, 2),
-(4, 'Diuna', 'Sci-Fi book', 54.99, 60, 2, 5),
-(5, 'IT', 'Horror book', 44.99, 90, 3, 1),
-(6, 'Kod Leonarda', 'Thriller', 42.99, 85, 5, 2),
-(7, 'Harry Potter', 'Fantasy', 45.99, 120, 1, 2),
-(8, 'Rok 1984', 'Dystopia', 34.99, 110, 10, 3),
-(9, 'Zbrodnia i kara', 'Drama', 29.99, 50, 18, 10),
-(10, 'Pan Tadeusz', 'Poetry', 24.99, 40, 17, 18),
-(11, 'Sapiens', 'History', 49.99, 70, 7, 3),
-(12, 'Psychologia', 'Science', 59.99, 65, 13, 20),
-(13, 'Czysty kod', 'Programming', 79.99, 30, 9, 1),
-(14, 'Java Podstawy', 'Programming', 69.99, 25, 9, 1),
-(15, 'Python', 'Programming', 74.99, 35, 9, 1),
-(16, 'Marketing', 'Business', 54.99, 45, 14, 7),
-(17, 'Zabojca', 'Crime', 39.99, 55, 6, 15),
-(18, 'Komiks', 'Comics', 29.99, 90, 19, 9),
-(19, 'Bajki', 'Children', 19.99, 150, 11, 18),
-(20, 'Podroze', 'Travel', 44.99, 60, 16, 16);
+(1, 'Wiedzmin', 'Fantasy book', '49.99', 100, 1, 4),
+(2, 'Hobbit', 'Fantasy book', '39.99', 80, 1, 1),
+(3, 'Gra o Tron', 'Fantasy book', '59.99', 70, 1, 2),
+(4, 'Diuna', 'Sci-Fi book', '54.99', 60, 2, 5),
+(5, 'IT', 'Horror book', '44.99', 90, 3, 1),
+(6, 'Kod Leonarda', 'Thriller', '42.99', 85, 5, 2),
+(7, 'Harry Potter', 'Fantasy', '45.99', 120, 1, 2),
+(8, 'Rok 1984', 'Dystopia', '34.99', 110, 10, 3),
+(9, 'Zbrodnia i kara', 'Drama', '29.99', 50, 18, 10),
+(10, 'Pan Tadeusz', 'Poetry', '24.99', 40, 17, 18),
+(11, 'Sapiens', 'History', '49.99', 70, 7, 3),
+(12, 'Psychologia', 'Science', '59.99', 65, 13, 20),
+(13, 'Czysty kod', 'Programming', '79.99', 30, 9, 1),
+(14, 'Java Podstawy', 'Programming', '69.99', 25, 9, 1),
+(15, 'Python', 'Programming', '74.99', 35, 9, 1),
+(16, 'Marketing', 'Business', '54.99', 45, 14, 7),
+(17, 'Zabojca', 'Crime', '39.99', 55, 6, 15),
+(18, 'Komiks', 'Comics', '29.99', 90, 19, 9),
+(19, 'Bajki', 'Children', '19.99', 150, 11, 18),
+(20, 'Podroze', 'Travel', '44.99', 60, 16, 16);
 
 -- --------------------------------------------------------
 
@@ -188,7 +214,7 @@ CREATE TABLE `book_authors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Dumping data for table `book_authors`
+-- Zrzut danych tabeli `book_authors`
 --
 
 INSERT INTO `book_authors` (`id_book`, `id_author`) VALUES
@@ -225,7 +251,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Dumping data for table `categories`
+-- Zrzut danych tabeli `categories`
 --
 
 INSERT INTO `categories` (`id_category`, `name`) VALUES
@@ -266,7 +292,7 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Dumping data for table `customers`
+-- Zrzut danych tabeli `customers`
 --
 
 INSERT INTO `customers` (`id_customer`, `email`, `password_hash`, `name`, `surname`, `created_at`) VALUES
@@ -303,7 +329,7 @@ CREATE TABLE `departments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Dumping data for table `departments`
+-- Zrzut danych tabeli `departments`
 --
 
 INSERT INTO `departments` (`id_department`, `name`) VALUES
@@ -345,30 +371,30 @@ CREATE TABLE `employees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Dumping data for table `employees`
+-- Zrzut danych tabeli `employees`
 --
 
 INSERT INTO `employees` (`id_employee`, `name`, `surname`, `position`, `id_department`, `salary`, `IBAN`) VALUES
-(1, 'Jan', 'Kowalski', 'boss', 20, 12000.00, 0),
-(2, 'Anna', 'Nowak', '', 1, 8000.00, 0),
-(3, 'Piotr', 'Zielinski', 'seller', 1, 5200.00, 0),
-(4, 'Kasia', 'Mazur', 'seller', 10, 5100.00, 0),
-(5, 'Marek', 'Lewandowski', '', 2, 7800.00, 0),
-(6, 'Ola', 'Kaczmarek', 'seller', 11, 5000.00, 0),
-(7, 'Tomasz', 'Dabrowski', 'seller', 11, 5000.00, 0),
-(8, 'Natalia', 'Wojcik', '', 7, 7600.00, 0),
-(9, 'Krzysztof', 'Krawczyk', 'seller', 9, 4900.00, 0),
-(10, 'Magda', 'Piotrowska', 'seller', 9, 4900.00, 0),
-(11, 'Adam', 'Grabowski', 'seller', 10, 5050.00, 0),
-(12, 'Ewa', 'Nowicka', 'seller', 10, 5050.00, 0),
-(13, 'Pawel', 'Michalski', '', 12, 7700.00, 0),
-(14, 'Karolina', 'Krupa', 'seller', 13, 4800.00, 0),
-(15, 'Bartek', 'Jankowski', 'seller', 13, 4800.00, 0),
-(16, 'Monika', 'Szymanska', '', 6, 7900.00, 0),
-(17, 'Daniel', 'Wilk', 'seller', 8, 4950.00, 0),
-(18, 'Julia', 'Lis', 'seller', 8, 4950.00, 0),
-(19, 'Rafal', 'Kubiak', '', 4, 7400.00, 0),
-(20, 'Agnieszka', 'Czarnecka', 'seller', 4, 4700.00, 0);
+(1, 'Jan', 'Kowalski', 'boss', 20, '12000.00', 0),
+(2, 'Anna', 'Nowak', '', 1, '8000.00', 0),
+(3, 'Piotr', 'Zielinski', 'seller', 1, '5200.00', 0),
+(4, 'Kasia', 'Mazur', 'seller', 10, '5100.00', 0),
+(5, 'Marek', 'Lewandowski', '', 2, '7800.00', 0),
+(6, 'Ola', 'Kaczmarek', 'seller', 11, '5000.00', 0),
+(7, 'Tomasz', 'Dabrowski', 'seller', 11, '5000.00', 0),
+(8, 'Natalia', 'Wojcik', '', 7, '7600.00', 0),
+(9, 'Krzysztof', 'Krawczyk', 'seller', 9, '4900.00', 0),
+(10, 'Magda', 'Piotrowska', 'seller', 9, '4900.00', 0),
+(11, 'Adam', 'Grabowski', 'seller', 10, '5050.00', 0),
+(12, 'Ewa', 'Nowicka', 'seller', 10, '5050.00', 0),
+(13, 'Pawel', 'Michalski', '', 12, '7700.00', 0),
+(14, 'Karolina', 'Krupa', 'seller', 13, '4800.00', 0),
+(15, 'Bartek', 'Jankowski', 'seller', 13, '4800.00', 0),
+(16, 'Monika', 'Szymanska', '', 6, '7900.00', 0),
+(17, 'Daniel', 'Wilk', 'seller', 8, '4950.00', 0),
+(18, 'Julia', 'Lis', 'seller', 8, '4950.00', 0),
+(19, 'Rafal', 'Kubiak', '', 4, '7400.00', 0),
+(20, 'Agnieszka', 'Czarnecka', 'seller', 4, '4700.00', 0);
 
 -- --------------------------------------------------------
 
@@ -509,7 +535,7 @@ CREATE TABLE `suppliers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Dumping data for table `suppliers`
+-- Zrzut danych tabeli `suppliers`
 --
 
 INSERT INTO `suppliers` (`id_supplier`, `name`, `phone`, `email`) VALUES
@@ -544,6 +570,14 @@ INSERT INTO `suppliers` (`id_supplier`, `name`, `phone`, `email`) VALUES
 ALTER TABLE `addresses`
   ADD PRIMARY KEY (`id_address`),
   ADD KEY `id_customer` (`id_customer`);
+
+--
+-- Indeksy dla tabeli `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uniq_admin_login_code` (`login_code`),
+  ADD UNIQUE KEY `uniq_admin_mail` (`mail`);
 
 --
 -- Indeksy dla tabeli `authors`
@@ -622,87 +656,93 @@ ALTER TABLE `suppliers`
   ADD PRIMARY KEY (`id_supplier`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT dla zrzuconych tabel
 --
 
 --
--- AUTO_INCREMENT for table `addresses`
+-- AUTO_INCREMENT dla tabeli `addresses`
 --
 ALTER TABLE `addresses`
   MODIFY `id_address` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `authors`
+-- AUTO_INCREMENT dla tabeli `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `authors`
 --
 ALTER TABLE `authors`
   MODIFY `id_author` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `books`
+-- AUTO_INCREMENT dla tabeli `books`
 --
 ALTER TABLE `books`
   MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT dla tabeli `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `customers`
+-- AUTO_INCREMENT dla tabeli `customers`
 --
 ALTER TABLE `customers`
   MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `departments`
+-- AUTO_INCREMENT dla tabeli `departments`
 --
 ALTER TABLE `departments`
   MODIFY `id_department` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `employees`
+-- AUTO_INCREMENT dla tabeli `employees`
 --
 ALTER TABLE `employees`
   MODIFY `id_employee` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT dla tabeli `orders`
 --
 ALTER TABLE `orders`
   MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `order_items`
+-- AUTO_INCREMENT dla tabeli `order_items`
 --
 ALTER TABLE `order_items`
   MODIFY `id_order_item` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `payments`
+-- AUTO_INCREMENT dla tabeli `payments`
 --
 ALTER TABLE `payments`
   MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `suppliers`
+-- AUTO_INCREMENT dla tabeli `suppliers`
 --
 ALTER TABLE `suppliers`
   MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- Constraints for dumped tables
+-- Ograniczenia dla zrzutów tabel
 --
 
 --
--- Constraints for table `addresses`
+-- Ograniczenia dla tabeli `addresses`
 --
 ALTER TABLE `addresses`
   ADD CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id_customer`);
 
 --
--- Constraints for table `books`
+-- Ograniczenia dla tabeli `books`
 --
 ALTER TABLE `books`
   ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id_category`),
@@ -711,7 +751,7 @@ ALTER TABLE `books`
   ADD CONSTRAINT `fk_books_supplier` FOREIGN KEY (`id_supplier`) REFERENCES `suppliers` (`id_supplier`);
 
 --
--- Constraints for table `book_authors`
+-- Ograniczenia dla tabeli `book_authors`
 --
 ALTER TABLE `book_authors`
   ADD CONSTRAINT `book_authors_ibfk_1` FOREIGN KEY (`id_book`) REFERENCES `books` (`id_book`),
@@ -720,13 +760,13 @@ ALTER TABLE `book_authors`
   ADD CONSTRAINT `fk_ba_book` FOREIGN KEY (`id_book`) REFERENCES `books` (`id_book`);
 
 --
--- Constraints for table `employees`
+-- Ograniczenia dla tabeli `employees`
 --
 ALTER TABLE `employees`
   ADD CONSTRAINT `fk_employee_department` FOREIGN KEY (`id_department`) REFERENCES `departments` (`id_department`);
 
 --
--- Constraints for table `orders`
+-- Ograniczenia dla tabeli `orders`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `fk_orders_customer` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id_customer`),
@@ -735,7 +775,7 @@ ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`id_employee`) REFERENCES `employees` (`id_employee`);
 
 --
--- Constraints for table `order_items`
+-- Ograniczenia dla tabeli `order_items`
 --
 ALTER TABLE `order_items`
   ADD CONSTRAINT `fk_oi_book` FOREIGN KEY (`id_book`) REFERENCES `books` (`id_book`),
@@ -744,7 +784,7 @@ ALTER TABLE `order_items`
   ADD CONSTRAINT `order_items_ibfk_2` FOREIGN KEY (`id_book`) REFERENCES `books` (`id_book`);
 
 --
--- Constraints for table `payments`
+-- Ograniczenia dla tabeli `payments`
 --
 ALTER TABLE `payments`
   ADD CONSTRAINT `fk_payment_order` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id_order`),
