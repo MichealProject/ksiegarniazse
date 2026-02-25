@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 25 Lut 2026, 09:06
+-- Czas generowania: 25 Lut 2026, 09:13
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.1.12
 
@@ -107,19 +107,14 @@ CREATE TABLE `admin` (
   `login_code` varchar(255) NOT NULL,
   `password_hash` varchar(255) NOT NULL,
   `level` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
-  `programmer` tinyint(1) NOT NULL DEFAULT 0,
   `banned` tinyint(1) NOT NULL DEFAULT 0,
-  `is_accepted_regulations` tinyint(1) NOT NULL DEFAULT 0,
   `mail` varchar(255) NOT NULL DEFAULT '',
   `name` varchar(120) NOT NULL DEFAULT '',
   `surname` varchar(120) NOT NULL DEFAULT '',
   `state` varchar(120) NOT NULL DEFAULT '',
   `pesel` char(11) NOT NULL DEFAULT '',
   `address` varchar(255) NOT NULL DEFAULT '',
-  `phone` varchar(50) NOT NULL DEFAULT '',
-  `last_login_at` datetime DEFAULT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `phone` varchar(50) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
