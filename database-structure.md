@@ -13,8 +13,8 @@ spójności danych oraz automatyzacji logiki biznesowej.
 
 ## 2. Technologie
 
-- System bazy danych: MySQL / MariaDB  
-- Model danych: relacyjny  
+- System bazy danych: MySQL / MariaDB
+- Model danych: relacyjny
 - Wykorzystane mechanizmy:
   - FOREIGN KEY
   - TRIGGER
@@ -27,32 +27,35 @@ spójności danych oraz automatyzacji logiki biznesowej.
 
 ### Tabele
 
-- customers – klienci sklepu  
-- employees – pracownicy księgarni  
-- departments – działy pracowników  
-- books – książki dostępne w sprzedaży  
-- authors – autorzy książek  
-- categories – kategorie książek  
-- suppliers – dostawcy książek  
-- orders – zamówienia  
-- order_items – pozycje zamówień  
-- payments – płatności  
-- addresses – adresy klientów  
-- book_authors – relacja książka–autor  
+- customers – klienci sklepu
+- employees – pracownicy księgarni
+- departments – działy pracowników
+- books – książki dostępne w sprzedaży
+- authors – autorzy książek
+- categories – kategorie książek
+- suppliers – dostawcy książek
+- admin – konta administratorów panelu
+- orders – zamówienia
+- order_items – pozycje zamówień
+- payments – płatności
+- addresses – adresy klientów
+- book_authors – relacja książka–autor
 
 ---
 
 ## 4. Relacje między tabelami
 
-- departments → employees  
-- customers → orders  
-- employees → orders  
-- orders → order_items  
-- books → order_items  
-- books → categories  
-- books → suppliers  
-- books ↔ authors (book_authors)  
-- orders → payments  
+- departments → employees
+- customers → orders
+- employees → orders
+- orders → order_items
+- books → order_items
+- books → categories
+- books → suppliers
+- books ↔ authors (book_authors)
+- orders → payments
+
+Tabela `admin` służy do logowania i zarządzania dostępem do panelu.
 
 Wszystkie relacje zostały zabezpieczone kluczami obcymi.
 
@@ -73,13 +76,13 @@ Zaimplementowane triggery realizują następujące funkcje:
 
 Baza danych zawiera procedury składowane obsługujące logikę systemu:
 
-- create_order – tworzenie nowego zamówienia  
-- add_book_to_order – dodanie książki do zamówienia  
-- remove_book_from_order – usunięcie pozycji z zamówienia  
-- update_order_status – zmiana statusu zamówienia  
-- register_payment – rejestracja płatności  
-- add_book – dodanie nowej książki  
-- get_order_details – pobranie szczegółów zamówienia  
+- create_order – tworzenie nowego zamówienia
+- add_book_to_order – dodanie książki do zamówienia
+- remove_book_from_order – usunięcie pozycji z zamówienia
+- update_order_status – zmiana statusu zamówienia
+- register_payment – rejestracja płatności
+- add_book – dodanie nowej książki
+- get_order_details – pobranie szczegółów zamówienia
 
 Procedury upraszczają obsługę bazy danych oraz zapewniają spójność danych.
 
@@ -87,10 +90,10 @@ Procedury upraszczają obsługę bazy danych oraz zapewniają spójność danych
 
 ## 7. Przykładowy przebieg zamówienia
 
-1. Utworzenie zamówienia  
-2. Dodanie książek do zamówienia  
-3. Automatyczne przeliczenie ceny oraz aktualizacja magazynu  
-4. Rejestracja płatności  
+1. Utworzenie zamówienia
+2. Dodanie książek do zamówienia
+3. Automatyczne przeliczenie ceny oraz aktualizacja magazynu
+4. Rejestracja płatności
 5. Zmiana statusu zamówienia na „paid”
 
 ---
@@ -98,6 +101,7 @@ Procedury upraszczają obsługę bazy danych oraz zapewniają spójność danych
 ## 8. Normalizacja
 
 Baza danych spełnia zasady:
+
 - 1NF – brak powtarzających się danych
 - 2NF – pełna zależność od klucza głównego
 - 3NF – brak zależności przechodnich
