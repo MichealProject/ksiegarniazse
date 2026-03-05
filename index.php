@@ -100,6 +100,9 @@ if (!empty($_SESSION['login_code'])) {
 
 // ============ SEKCJA 5: ROUTING STRON ============
 
+$template = new Template();
+$template->setDefault();
+
 $allowed_pages = ['home', 'login', '404', 'logout'];
 $page = filter_input(INPUT_GET, 'page') ?: 'home';
 
@@ -112,10 +115,9 @@ include BASE_PATH . "/pages/{$page}.php";
 
 // ============ SEKCJA 6: WYGENERUJ I WYŚWIETL STRONĘ ============
 
-$template = new Template();
-$template->setDefault();
 $template->setMain($display->display());
 
 mysqli_close($mysql);
 
 echo $template->generateTemplate();
+
