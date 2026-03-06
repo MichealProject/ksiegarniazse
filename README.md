@@ -1,4 +1,4 @@
-# 📖 Księgarnia Internetowa
+# 📖 Księgarnia Internetowa 4H/G2 Michał Demus,Tymoteusz Wolski,Mateusz Mazur
 
 Projekt księgarni internetowej stworzony w ramach pracy zespołowej. Aplikacja umożliwia przeglądanie książek, rejestrację i logowanie użytkowników oraz zapoznanie się z ofertą poszczególnych produktów.
 
