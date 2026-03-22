@@ -103,21 +103,20 @@ if (!empty($_SESSION['login_code'])) {
 $template = new Template();
 $template->setDefault();
 
-$allowed_pages = ['home', 'login', '404', 'logout'];
+$allowed_pages = ['home', 'login', '404', 'logout', 'help', 'regulations', 'product', 'cart'];
 $page = filter_input(INPUT_GET, 'page') ?: 'home';
 
 if (!in_array($page, $allowed_pages, true) || !file_exists(BASE_PATH . "/pages/{$page}.php")) {
     $page = '404';
     http_response_code(404);
-}
-
-include BASE_PATH . "/pages/{$page}.php";
-
-// ============ SEKCJA 6: WYGENERUJ I WYŚWIETL STRONĘ ============
-
+    }
+    
+    include BASE_PATH . "/pages/{$page}.php";
+    
+    // ============ SEKCJA 6: WYGENERUJ I WYŚWIETL STRONĘ ============
+    
 $template->setMain($display->display());
 
 mysqli_close($mysql);
 
 echo $template->generateTemplate();
-
