@@ -71,7 +71,7 @@ endif;
                 <li class="nav-item">
                     <a class="nav-link <?php echo $page === 'cart' ? 'active' : ''; ?>" href="?page=cart">
                         <i class="bi bi-cart me-1"></i> Koszyk
-                        <span id="cart-count">(0)</span>
+                        <span id="cart-count"></span>
                     </a>
                 </li>
                 <?php if ($is_logged): ?>
