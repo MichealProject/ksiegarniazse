@@ -68,6 +68,12 @@ endif;
             </ul>
 
             <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link <?php echo $page === 'cart' ? 'active' : ''; ?>" href="?page=cart">
+                        <i class="bi bi-cart me-1"></i> Koszyk
+                        <span id="cart-count">(0)</span>
+                    </a>
+                </li>
                 <?php if ($is_logged): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="?page=profile" title="Mój profil">
