@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $conn = mysqli_connect("localhost", "root", "", "bookdb");
 
 // Format json
@@ -20,7 +21,17 @@ $quantity = 1;
 // Dodawanie do koszyka dla zalogowanego użytkownika
 if (isset($_SESSION['user_id'])) {
 
-   
+    $stmt = mysqli_prepare($conn,
+        "INSERT INTO cart (customer_id, book_id, ilosc)
+         VALUES (?, ?, ?)
+         ON DUPLICATE KEY UPDATE ilosc = LEAST(ilosc + VALUES(ilosc), 100)"
+    );
+
+    mysqli_stmt_bind_param($stmt, "iii", $_SESSION['user_id'], $product_id, $quantity);
+    mysqli_stmt_execute($stmt);
+
+    echo json_encode(["status" => "ok"]);
+    exit;
 }
 
 // Dodawanie do koszyka dla niezalogowanego użytkownika
