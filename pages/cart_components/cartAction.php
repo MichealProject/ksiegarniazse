@@ -40,7 +40,7 @@ switch ($action) {
         // Dla zalogowanego użytkownika
         if ($isUser) {
             $stmt = mysqli_prepare($conn,
-                "UPDATE cart_items SET quantity=? WHERE user_id=? AND product_id=?");
+                "UPDATE cart SET ilosc=? WHERE customer_id=? AND book_id=?");
             mysqli_stmt_bind_param($stmt, "iii", $quantity, $_SESSION['user_id'], $product_id);
             mysqli_stmt_execute($stmt);
         } 
@@ -64,7 +64,10 @@ switch ($action) {
 
         // Dla zalogowanego użytkownika
         if ($isUser) {
-            
+            $stmt = mysqli_prepare($conn,
+                "DELETE FROM cart WHERE customer_id=? AND book_id=?");
+            mysqli_stmt_bind_param($stmt, "ii", $_SESSION['user_id'], $product_id);
+            mysqli_stmt_execute($stmt);
         }
         // Dla niezalogowanego użytkownika 
         else {
