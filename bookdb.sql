@@ -287,7 +287,8 @@ CREATE TABLE `customers` (
   `password_hash` varchar(255) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `surname` varchar(100) DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp()
+  `created_at` datetime DEFAULT current_timestamp(),
+    'banned' tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
