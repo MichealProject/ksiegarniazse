@@ -1,4 +1,5 @@
 <?php
+
 $conn = mysqli_connect("localhost", "root", "", "bookdb");
 
 if (!$conn) {
@@ -14,10 +15,10 @@ if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 
     // Pobieranie danych produktów z koszyka użytkownika
-    $sql = "SELECT c.product_id, c.quantity, b.title, b.price
-            FROM cart_items c
-            JOIN books b ON b.id_book = c.product_id
-            WHERE c.user_id = ?";
+    $sql = "SELECT c.book_id, c.ilosc, b.title, b.price
+            FROM cart c
+            JOIN books b ON b.id_book = c.book_id
+            WHERE c.customer_id = ?";
 
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "i", $user_id);
@@ -28,14 +29,14 @@ if (isset($_SESSION['user_id'])) {
     //Tworzenie koszyka
     while ($row = mysqli_fetch_assoc($result)) {
 
-        $quantity = max(1, min(100, (int)$row['quantity']));
+        $quantity = max(1, min(100, (int)$row['ilosc']));
         $price = (float)$row['price'];
 
         $sum = $price * $quantity;
         $total += $sum;
 
         $cartItems[] = [
-            "id" => (int)$row['product_id'],
+            "id" => (int)$row['book_id'],
             "title" => $row['title'],
             "price" => $price,
             "quantity" => $quantity,
