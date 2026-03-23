@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 25 Lut 2026, 09:13
--- Wersja serwera: 10.4.27-MariaDB
--- Wersja PHP: 8.1.12
+-- Generation Time: Mar 23, 2026 at 09:06 PM
+-- Wersja serwera: 10.4.32-MariaDB
+-- Wersja PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `bookdb`
+-- Database: `bookdb`
 --
 
 DELIMITER $$
@@ -206,7 +206,6 @@ INSERT INTO `books` (`id_book`, `title`, `description`, `price`, `stock`, `pages
 (19, 'Kubuś Puchatek', 'Ponadczasowa opowieść o mieszkańcach Stumilowego Lasu, która łączy prostotę dziecięcej narracji z subtelną refleksją o przyjaźni i dorastaniu. „Kubuś Puchatek” to zbiór historii o przygodach misia o małym rozumku i jego przyjaciół — Prosiaczka, Tygryska, Kłapouchego i Krzysia.\r\n\r\nMilne tworzy świat ciepły, bezpieczny i pełen łagodnego humoru, w którym codzienne drobiazgi stają się wielkimi wydarzeniami. Dialogi, pozornie naiwne, kryją w sobie mądrość i wrażliwość na emocje.\r\n\r\nTo książka o lojalności, prostocie i sile relacji. O tym, że szczęście często ukrywa się w małych rzeczach i wspólnie spędzonym czasie.', 19.99, 150, 176, 'twarda', '1926-10-14', 11, 18),
 (20, 'Cuda Polski', 'Album prezentujący najpiękniejsze zakątki kraju — od majestatycznych gór po nadmorskie krajobrazy i zabytkowe miasta. „Cuda Polski” to wizualna podróż przez miejsca, które kształtują tożsamość kulturową i przyrodniczą Polski.\r\n\r\nPublikacja łączy fotografie z opisami historycznymi i ciekawostkami, ukazując zarówno znane symbole, jak i mniej oczywiste perełki architektury oraz natury. To opowieść o różnorodności krajobrazów i bogactwie dziedzictwa.\r\n\r\nTo książka o zachwycie, o odkrywaniu na nowo znanych miejsc i o dumie z przestrzeni, która łączy historię, kulturę i przyrodę w jedną spójną opowieść.', 44.99, 60, 320, 'twarda', '2020-01-01', 16, 16);
 
-
 -- --------------------------------------------------------
 
 --
@@ -247,6 +246,18 @@ INSERT INTO `book_authors` (`id_book`, `id_author`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `cart`
+--
+
+CREATE TABLE `cart` (
+  `customer_id` int(11) NOT NULL,
+  `book_id` int(11) NOT NULL,
+  `ilosc` int(11) DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `categories`
 --
 
@@ -256,7 +267,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id_category`, `name`) VALUES
@@ -298,30 +309,31 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `customers`
+-- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id_customer`, `email`, `password_hash`, `name`, `surname`, `created_at`) VALUES
-(1, 'a@a.pl', 'hash', 'Adam', 'Nowak', '2026-01-23 11:41:25'),
-(2, 'b@b.pl', 'hash', 'Beata', 'Kowalska', '2026-01-23 11:41:25'),
-(3, 'c@c.pl', 'hash', 'Cezary', 'Mazur', '2026-01-23 11:41:25'),
-(4, 'd@d.pl', 'hash', 'Dorota', 'Lis', '2026-01-23 11:41:25'),
-(5, 'e@e.pl', 'hash', 'Eryk', 'Wilk', '2026-01-23 11:41:25'),
-(6, 'f@f.pl', 'hash', 'Filip', 'Baran', '2026-01-23 11:41:25'),
-(7, 'g@g.pl', 'hash', 'Gosia', 'Kaczmarek', '2026-01-23 11:41:25'),
-(8, 'h@h.pl', 'hash', 'Hubert', 'Piotrowski', '2026-01-23 11:41:25'),
-(9, 'i@i.pl', 'hash', 'Iga', 'Zajac', '2026-01-23 11:41:25'),
-(10, 'j@j.pl', 'hash', 'Jan', 'Wojcik', '2026-01-23 11:41:25'),
-(11, 'k@k.pl', 'hash', 'Kasia', 'Kubiak', '2026-01-23 11:41:25'),
-(12, 'l@l.pl', 'hash', 'Lukasz', 'Duda', '2026-01-23 11:41:25'),
-(13, 'm@m.pl', 'hash', 'Magda', 'Krupa', '2026-01-23 11:41:25'),
-(14, 'n@n.pl', 'hash', 'Norbert', 'Szulc', '2026-01-23 11:41:25'),
-(15, 'o@o.pl', 'hash', 'Ola', 'Michalska', '2026-01-23 11:41:25'),
-(16, 'p@p.pl', 'hash', 'Patryk', 'Kalinowski', '2026-01-23 11:41:25'),
-(17, 'r@r.pl', 'hash', 'Roksana', 'Adamska', '2026-01-23 11:41:25'),
-(18, 's@s.pl', 'hash', 'Sebastian', 'Sikora', '2026-01-23 11:41:25'),
-(19, 't@t.pl', 'hash', 'Tomek', 'Pawlak', '2026-01-23 11:41:25'),
-(20, 'u@u.pl', 'hash', 'Ula', 'Stepien', '2026-01-23 11:41:25');
+INSERT INTO `customers` (`id_customer`, `email`, `password_hash`, `name`, `surname`, `created_at`, `banned`) VALUES
+(1, 'a@a.pl', 'hash', 'Adam', 'Nowak', '2026-01-23 11:41:25', 0),
+(2, 'b@b.pl', 'hash', 'Beata', 'Kowalska', '2026-01-23 11:41:25', 0),
+(3, 'c@c.pl', 'hash', 'Cezary', 'Mazur', '2026-01-23 11:41:25', 0),
+(4, 'd@d.pl', 'hash', 'Dorota', 'Lis', '2026-01-23 11:41:25', 0),
+(5, 'e@e.pl', 'hash', 'Eryk', 'Wilk', '2026-01-23 11:41:25', 0),
+(6, 'f@f.pl', 'hash', 'Filip', 'Baran', '2026-01-23 11:41:25', 0),
+(7, 'g@g.pl', 'hash', 'Gosia', 'Kaczmarek', '2026-01-23 11:41:25', 0),
+(8, 'h@h.pl', 'hash', 'Hubert', 'Piotrowski', '2026-01-23 11:41:25', 0),
+(9, 'i@i.pl', 'hash', 'Iga', 'Zajac', '2026-01-23 11:41:25', 0),
+(10, 'j@j.pl', 'hash', 'Jan', 'Wojcik', '2026-01-23 11:41:25', 0),
+(11, 'k@k.pl', 'hash', 'Kasia', 'Kubiak', '2026-01-23 11:41:25', 0),
+(12, 'l@l.pl', 'hash', 'Lukasz', 'Duda', '2026-01-23 11:41:25', 0),
+(13, 'm@m.pl', 'hash', 'Magda', 'Krupa', '2026-01-23 11:41:25', 0),
+(14, 'n@n.pl', 'hash', 'Norbert', 'Szulc', '2026-01-23 11:41:25', 0),
+(15, 'o@o.pl', 'hash', 'Ola', 'Michalska', '2026-01-23 11:41:25', 0),
+(16, 'p@p.pl', 'hash', 'Patryk', 'Kalinowski', '2026-01-23 11:41:25', 0),
+(17, 'r@r.pl', 'hash', 'Roksana', 'Adamska', '2026-01-23 11:41:25', 0),
+(18, 's@s.pl', 'hash', 'Sebastian', 'Sikora', '2026-01-23 11:41:25', 0),
+(19, 't@t.pl', 'hash', 'Tomek', 'Pawlak', '2026-01-23 11:41:25', 0),
+(20, 'u@u.pl', 'hash', 'Ula', 'Stepien', '2026-01-23 11:41:25', 0),
+(22, 'ola@gmail.com', '$2y$10$nIeNAOfFR4O/qkoLoBeIWemVJiAfm3Yd73DzbX959FLTPxiYU5F3m', 'Aleksandra', 'Żuk', '2026-03-23 19:49:49', 0);
 
 -- --------------------------------------------------------
 
@@ -335,7 +347,7 @@ CREATE TABLE `departments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `departments`
+-- Dumping data for table `departments`
 --
 
 INSERT INTO `departments` (`id_department`, `name`) VALUES
@@ -377,30 +389,30 @@ CREATE TABLE `employees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `employees`
+-- Dumping data for table `employees`
 --
 
 INSERT INTO `employees` (`id_employee`, `name`, `surname`, `position`, `id_department`, `salary`, `IBAN`) VALUES
-(1, 'Jan', 'Kowalski', 'boss', 20, '12000.00', 0),
-(2, 'Anna', 'Nowak', '', 1, '8000.00', 0),
-(3, 'Piotr', 'Zielinski', 'seller', 1, '5200.00', 0),
-(4, 'Kasia', 'Mazur', 'seller', 10, '5100.00', 0),
-(5, 'Marek', 'Lewandowski', '', 2, '7800.00', 0),
-(6, 'Ola', 'Kaczmarek', 'seller', 11, '5000.00', 0),
-(7, 'Tomasz', 'Dabrowski', 'seller', 11, '5000.00', 0),
-(8, 'Natalia', 'Wojcik', '', 7, '7600.00', 0),
-(9, 'Krzysztof', 'Krawczyk', 'seller', 9, '4900.00', 0),
-(10, 'Magda', 'Piotrowska', 'seller', 9, '4900.00', 0),
-(11, 'Adam', 'Grabowski', 'seller', 10, '5050.00', 0),
-(12, 'Ewa', 'Nowicka', 'seller', 10, '5050.00', 0),
-(13, 'Pawel', 'Michalski', '', 12, '7700.00', 0),
-(14, 'Karolina', 'Krupa', 'seller', 13, '4800.00', 0),
-(15, 'Bartek', 'Jankowski', 'seller', 13, '4800.00', 0),
-(16, 'Monika', 'Szymanska', '', 6, '7900.00', 0),
-(17, 'Daniel', 'Wilk', 'seller', 8, '4950.00', 0),
-(18, 'Julia', 'Lis', 'seller', 8, '4950.00', 0),
-(19, 'Rafal', 'Kubiak', '', 4, '7400.00', 0),
-(20, 'Agnieszka', 'Czarnecka', 'seller', 4, '4700.00', 0);
+(1, 'Jan', 'Kowalski', 'boss', 20, 12000.00, 0),
+(2, 'Anna', 'Nowak', '', 1, 8000.00, 0),
+(3, 'Piotr', 'Zielinski', 'seller', 1, 5200.00, 0),
+(4, 'Kasia', 'Mazur', 'seller', 10, 5100.00, 0),
+(5, 'Marek', 'Lewandowski', '', 2, 7800.00, 0),
+(6, 'Ola', 'Kaczmarek', 'seller', 11, 5000.00, 0),
+(7, 'Tomasz', 'Dabrowski', 'seller', 11, 5000.00, 0),
+(8, 'Natalia', 'Wojcik', '', 7, 7600.00, 0),
+(9, 'Krzysztof', 'Krawczyk', 'seller', 9, 4900.00, 0),
+(10, 'Magda', 'Piotrowska', 'seller', 9, 4900.00, 0),
+(11, 'Adam', 'Grabowski', 'seller', 10, 5050.00, 0),
+(12, 'Ewa', 'Nowicka', 'seller', 10, 5050.00, 0),
+(13, 'Pawel', 'Michalski', '', 12, 7700.00, 0),
+(14, 'Karolina', 'Krupa', 'seller', 13, 4800.00, 0),
+(15, 'Bartek', 'Jankowski', 'seller', 13, 4800.00, 0),
+(16, 'Monika', 'Szymanska', '', 6, 7900.00, 0),
+(17, 'Daniel', 'Wilk', 'seller', 8, 4950.00, 0),
+(18, 'Julia', 'Lis', 'seller', 8, 4950.00, 0),
+(19, 'Rafal', 'Kubiak', '', 4, 7400.00, 0),
+(20, 'Agnieszka', 'Czarnecka', 'seller', 4, 4700.00, 0);
 
 -- --------------------------------------------------------
 
@@ -541,7 +553,7 @@ CREATE TABLE `suppliers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `suppliers`
+-- Dumping data for table `suppliers`
 --
 
 INSERT INTO `suppliers` (`id_supplier`, `name`, `phone`, `email`) VALUES
@@ -607,6 +619,14 @@ ALTER TABLE `book_authors`
   ADD KEY `fk_ba_author` (`id_author`);
 
 --
+-- Indeksy dla tabeli `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`customer_id`,`book_id`),
+  ADD UNIQUE KEY `customer_id` (`customer_id`,`book_id`),
+  ADD KEY `fk_cart_book` (`book_id`);
+
+--
 -- Indeksy dla tabeli `categories`
 --
 ALTER TABLE `categories`
@@ -662,93 +682,93 @@ ALTER TABLE `suppliers`
   ADD PRIMARY KEY (`id_supplier`);
 
 --
--- AUTO_INCREMENT dla zrzuconych tabel
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT dla tabeli `addresses`
+-- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
   MODIFY `id_address` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `authors`
+-- AUTO_INCREMENT for table `authors`
 --
 ALTER TABLE `authors`
-  MODIFY `id_author` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_author` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT dla tabeli `books`
+-- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
   MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT dla tabeli `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT dla tabeli `customers`
+-- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT dla tabeli `departments`
+-- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
   MODIFY `id_department` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT dla tabeli `employees`
+-- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
   MODIFY `id_employee` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT dla tabeli `orders`
+-- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
   MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `order_items`
+-- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
   MODIFY `id_order_item` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `payments`
+-- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
   MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `suppliers`
+-- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
   MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- Ograniczenia dla zrzutów tabel
+-- Constraints for dumped tables
 --
 
 --
--- Ograniczenia dla tabeli `addresses`
+-- Constraints for table `addresses`
 --
 ALTER TABLE `addresses`
   ADD CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id_customer`);
 
 --
--- Ograniczenia dla tabeli `books`
+-- Constraints for table `books`
 --
 ALTER TABLE `books`
   ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id_category`),
@@ -757,7 +777,7 @@ ALTER TABLE `books`
   ADD CONSTRAINT `fk_books_supplier` FOREIGN KEY (`id_supplier`) REFERENCES `suppliers` (`id_supplier`);
 
 --
--- Ograniczenia dla tabeli `book_authors`
+-- Constraints for table `book_authors`
 --
 ALTER TABLE `book_authors`
   ADD CONSTRAINT `book_authors_ibfk_1` FOREIGN KEY (`id_book`) REFERENCES `books` (`id_book`),
@@ -766,13 +786,20 @@ ALTER TABLE `book_authors`
   ADD CONSTRAINT `fk_ba_book` FOREIGN KEY (`id_book`) REFERENCES `books` (`id_book`);
 
 --
--- Ograniczenia dla tabeli `employees`
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `fk_cart_book` FOREIGN KEY (`book_id`) REFERENCES `books` (`id_book`),
+  ADD CONSTRAINT `fk_cart_customer` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id_customer`);
+
+--
+-- Constraints for table `employees`
 --
 ALTER TABLE `employees`
   ADD CONSTRAINT `fk_employee_department` FOREIGN KEY (`id_department`) REFERENCES `departments` (`id_department`);
 
 --
--- Ograniczenia dla tabeli `orders`
+-- Constraints for table `orders`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `fk_orders_customer` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id_customer`),
@@ -781,7 +808,7 @@ ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`id_employee`) REFERENCES `employees` (`id_employee`);
 
 --
--- Ograniczenia dla tabeli `order_items`
+-- Constraints for table `order_items`
 --
 ALTER TABLE `order_items`
   ADD CONSTRAINT `fk_oi_book` FOREIGN KEY (`id_book`) REFERENCES `books` (`id_book`),
@@ -790,7 +817,7 @@ ALTER TABLE `order_items`
   ADD CONSTRAINT `order_items_ibfk_2` FOREIGN KEY (`id_book`) REFERENCES `books` (`id_book`);
 
 --
--- Ograniczenia dla tabeli `payments`
+-- Constraints for table `payments`
 --
 ALTER TABLE `payments`
   ADD CONSTRAINT `fk_payment_order` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id_order`),
