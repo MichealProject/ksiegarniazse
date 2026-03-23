@@ -130,30 +130,36 @@ CREATE TABLE `authors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `authors`
+-- Dumping data for table `authors`
 --
 
 INSERT INTO `authors` (`id_author`, `name`, `surname`) VALUES
 (1, 'Stephen', 'King'),
 (2, 'J.R.R.', 'Tolkien'),
-(3, 'George', 'Martin'),
+(3, 'Robert', 'Martin'),
 (4, 'Andrzej', 'Sapkowski'),
 (5, 'Isaac', 'Asimov'),
 (6, 'Frank', 'Herbert'),
 (7, 'Dan', 'Brown'),
 (8, 'Jo', 'Nesbo'),
-(9, 'Agatha', 'Christie'),
+(9, 'Janusz', 'Christa'),
 (10, 'J.K.', 'Rowling'),
-(11, 'Yuval', 'Harari'),
+(11, 'Yuval Noah', 'Harari'),
 (12, 'Adam', 'Mickiewicz'),
 (13, 'Boleslaw', 'Prus'),
 (14, 'Olga', 'Tokarczuk'),
-(15, 'Remigiusz', 'Mroz'),
+(15, 'Fiodor', 'Dostojewski'),
 (16, 'Ernest', 'Hemingway'),
 (17, 'George', 'Orwell'),
-(18, 'Mark', 'Twain'),
+(18, 'Mark', 'Lutz'),
 (19, 'Neil', 'Gaiman'),
-(20, 'Terry', 'Pratchett');
+(20, 'Terry', 'Pratchett'),
+(21, 'Joel', 'Dimsdale'),
+(22, 'Cay', 'Horstmann'),
+(23, 'Philip', 'Kotler'),
+(24, 'Mike', 'Omer'),
+(25, 'Alan', 'Milne'),
+(26, 'Opracowanie', 'zbiorowe');
 
 -- --------------------------------------------------------
 
@@ -288,7 +294,7 @@ CREATE TABLE `customers` (
   `name` varchar(100) DEFAULT NULL,
   `surname` varchar(100) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
-    'banned' tinyint(1) DEFAULT 0
+  `banned` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
