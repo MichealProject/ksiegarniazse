@@ -198,18 +198,168 @@ function updateCart(action, product_id, quantity = null) {
     });
 }
 
-// Dodanie produktu do ulubionych
-function addToFav(id) {
-    fetch('pages/addToFavorites.php', {
+// Funkcja do dodawania/usunięcia produktu z ulubionych
+function toggleFav(btn) {
+    const id = btn.dataset.id;
+    const icon = btn.querySelector('i');
+
+    fetch('pages/fav_components/favAction.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ product_id: id })
-    });
+        body: JSON.stringify({ action: 'toggle', product_id: id })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.redirect) {
+            window.location.href = data.redirect;
+            return;
+        }
+        if (data.status === 'ok') {
+            if (data.redirect) {
+                window.location.href = data.redirect;
+            } else {
+                icon.classList.toggle('bi-heart');
+                icon.classList.toggle('bi-heart-fill');
+                icon.classList.toggle('text-danger');
+            }
+        } else {
+            console.error(data.message || 'Błąd dodawania do ulubionych');
+        }
+    })
+    .catch(err => console.error(err));
 }
 
-// Ustawienie aktualizacji sumy ceny po zwiększeniu ilości
+// Usuwanie jednego produktu z ulubionych
+function removeFav(btn) {
+    const productId = btn.dataset.id;
+
+    fetch('pages/fav_components/favAction.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'toggle', product_id: productId })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === 'ok') {
+            const card = document.querySelector(`.fav-item[data-id="${productId}"]`);
+            if (card) card.remove();
+
+            // Aktualizuje licznik ulubionych
+            const favCountEl = document.getElementById('favCount');
+             if (favCountEl) {
+                let currentCount = parseInt(favCountEl.textContent) || 0;
+
+                if (currentCount > 1) {
+                    favCountEl.textContent = currentCount - 1;
+                } else {
+                    favCountEl.textContent = 0;
+
+                    // Nie wyświetla elementów jeśli nie ma produktów
+                    document.querySelectorAll('.hideFavEl').forEach(el => {
+                        el.style.display = 'none';
+                    });
+                }
+            }
+
+            // Wyświetlana zawartość jeśli lista jest pusta
+            if (document.querySelectorAll('.fav-item').length === 0) {
+                document.querySelector('.favorites-container').innerHTML = `
+                    <section class="card p-4 d-flex flex-column align-items-center justify-content-center text-center">
+                        <img src="graphic/icons/list.png" style="max-width:120px;" class="mb-3">
+                        <h3 class="mb-0">Twoja lista jest pusta</h3>
+                    </section>
+                `;
+            }
+        }
+    })
+    .catch(err => console.error(err));
+}
+
+// Przeniesienie wszystkich ulubionych produktów do koszyka
+function moveAllToCart() {
+    const items = document.querySelectorAll('.fav-quantity');
+    const products = [];
+
+    items.forEach(input => {
+        const id = input.dataset.id;
+        const quantity = parseInt(input.value) || 1;
+        products.push({ product_id: id, quantity: Math.min(quantity, 100) });
+    });
+
+    if (products.length === 0) return;
+
+    fetch('pages/fav_components/favAction.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'move_to_cart', products: products })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === 'ok') {
+            showToast('Produkty zostały przeniesione do koszyka!');
+            refreshCartCount();
+        }
+    })
+    .catch(err => console.error(err));
+}
+
+// Czyszczenie wszystkich ulubionych produktów
+function clearFav() {
+    fetch('pages/fav_components/favAction.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'clear_all' })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === 'ok') {
+            location.reload();
+        }
+    })
+    .catch(err => console.error(err));
+}
+
+// Funkcja do małego powiadomienia
+function showToast(message) {
+    const toastContainer = document.getElementById('toastContainer');
+    if (!toastContainer) return;
+
+    toastContainer.classList.remove('d-none');
+
+    toastContainer.innerHTML = `
+        <div class="align-items-center text-bg-success border-0 rounded-2 p-3 d-flex">
+            <div class="toast-body flex-grow-1">
+                ${message}
+            </div>
+            <button type="button" class="btn-close btn-close-white ms-2"></button>
+        </div>
+    `;
+
+    toastContainer.querySelector('.btn-close').addEventListener('click', () => {
+        toastContainer.classList.add('d-none');
+    });
+
+    setTimeout(() => {
+        toastContainer.classList.add('d-none');
+    }, 2500);
+}
+
+// Odświeżenie licznika koszyka
+function refreshCartCount() {
+    fetch('pages/cart_components/getCartCount.php')
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'ok') {
+                const badge = document.getElementById('cart-count');
+                badge.textContent = `(${data.count})`;
+                badge.style.display = data.count > 0 ? 'inline-block' : 'none';
+            }
+        });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Ustawienie aktualizacji sumy ceny po zwiększeniu ilości dla koszyka
     document.querySelectorAll('.qty-input').forEach(input => {
 
         let timeout = null;
@@ -245,5 +395,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
+    document.querySelectorAll('.fav-quantity').forEach(input => {
+    
+        let timeout = null;
+    
+        input.addEventListener('input', () => {
+            // Ograniczenie wartości min/max
+            let value = input.value.replace(/\D/g, '');
+            let quantity = parseInt(value) || 1;
+    
+            if(quantity > 100) quantity = 100;
+            if(quantity < 1) quantity = 1;
+    
+            input.value = quantity;
+    
+            const id = input.dataset.id;
+    
+            // Zmniejszenie ilości zapytań przy szybkim wpisywaniu
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                fetch('pages/getFavCount.php', {
+                    method: 'POST',
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({id_book: id, quantity: quantity})
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.status !== 'ok'){
+                        console.error('Nie udało się zaktualizować ilości');
+                    }
+                });
+            }, 400);
+        });
+    
+    });
+
     refreshCartDisplay();
 });
+
+
