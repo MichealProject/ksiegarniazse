@@ -15,7 +15,7 @@ define('BASE_PATH', __DIR__);
 header('X-Frame-Options: DENY');
 header('X-Content-Type-Options: nosniff');
 
-require_once BASE_PATH . '/components/configuration.php';
+require_once BASE_PATH . '/componets/configuration.php';
 
 // Konfiguracja bezpiecznych ciasteczek sesji
 $is_secure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
@@ -28,7 +28,7 @@ session_set_cookie_params([
 
 session_start();
 
-require_once BASE_PATH . '/components/functions.php';
+require_once BASE_PATH . '/componets/functions.php';
 
 // ============ SEKCJA 2: POŁĄCZENIE Z BAZĄ DANYCH ============
 
