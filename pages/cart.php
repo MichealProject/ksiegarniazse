@@ -2,15 +2,25 @@
 
 $conn = mysqli_connect("localhost", "root", "", "bookdb");
 
-if (!$conn) {
+if(!$conn) {
     die("Błąd połączenia z bazą");
 }
 
 $cartItems = [];
 $total = 0;
 
+// Pobieranie ulubionych produktów zalogowanego użytkownika
+$favIds = [];
+if(isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $resultFav = mysqli_query($conn, "SELECT id_book FROM favorites WHERE id_customer = $user_id");
+    while($row = mysqli_fetch_assoc($resultFav)){
+        $favIds[] = (int)$row['id_book'];
+    }
+}
+
 // Pobieranie produktów dla zalogowanych użytkowników
-if (isset($_SESSION['user_id'])) {
+if(isset($_SESSION['user_id'])) {
 
     $user_id = $_SESSION['user_id'];
 
@@ -50,7 +60,7 @@ else {
 
     $cookieCart = json_decode($_COOKIE['cart'] ?? '[]', true);
 
-    if (is_array($cookieCart) && count($cookieCart) > 0) {
+    if(is_array($cookieCart) && count($cookieCart) > 0) {
 
         // Wyciągnięcie wyszstkich id produktów z cookie
         $ids = [];
@@ -64,7 +74,7 @@ else {
             }
         }
 
-        if (!empty($ids)) {
+        if(!empty($ids)) {
 
             // Pobranie danych wszystkich produktów
             $idsString = implode(',', $ids);
@@ -75,12 +85,12 @@ else {
 
             $products = [];
 
-            while ($row = mysqli_fetch_assoc($result)) {
+            while($row = mysqli_fetch_assoc($result)) {
                 $products[$row['id_book']] = $row;
             }
 
             // Tworzenie koszyka łącząc ilość z cookie i dane z bazy
-            foreach ($cookieCart as $item) {
+            foreach($cookieCart as $item) {
 
                 $id = (int)$item['productId'];
                 $quantity = max(1, min(100, (int)$item['quantity']));
