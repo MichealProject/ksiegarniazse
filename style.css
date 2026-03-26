@@ -1,0 +1,350 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Fhome.php ===== */
+/* Zaokrąglenie baneru */
+#mainBanner {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Wygląd przycisku */
+.custom-arrow {
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #e9ecef;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover na strzałkach */
+.custom-arrow:hover {
+  background-color: #ffffff;
+}
+
+/* Zaokrąglenia strzałek*/
+.left-arrow {
+  padding-right: 2px;
+  border-radius: 0 5px 5px 0;
+}
+.right-arrow {
+  padding-left: 2px;
+  border-radius: 5px 0 0 5px;
+}
+
+/* Cień dookoła karty po najechaniu*/
+.book-card {
+  transition: box-shadow 0.3s ease;
+}
+.book-card:hover {
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Wyrównanie grafiki książki */
+.book-img {
+  height: 240px;
+  width: 100%;
+  object-fit: contain;
+  padding: 10px;
+  background-color: #fff;
+}
+.card-footer-wrapper {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Wygląd przycisku dodawania do koszyka */
+.add-to-cart {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 2;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Wygląd karty produktu */
+.book-card {
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  background-color: #e3e3e3;
+}
+.book-card strong {
+  margin-bottom: auto;
+}
+.card-text {
+  margin-bottom: 0.25rem;
+  line-height: 1.1em;
+  max-height: 2.2em;
+}
+
+/* Wygląd i zachowanie tytułu książki */
+.card-title {
+  padding-bottom: 0.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Wygląd okna dodanego produktu */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; /* domyślnie ukryty */
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.cart-overlay.show {
+  display: flex; /* pojawia się po dodaniu klasy .show */
+}
+
+.cart-modal {
+  max-width: 400px;
+  width: 90%;
+}
+
+/* ===== Ffaq.html ===== */
+.faq-header {
+  background-color: #e9e9e9;
+}
+
+/* Wygląd rozwiniętego pytania */
+.faq-section .accordion-button:not(.collapsed) {
+  background-color: #212529;
+  color: #fff;
+}
+
+/* Strzałka listy pytań */
+.faq-section .faq-icon {
+  font-size: 1.2rem;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+  color: #212529;
+}
+
+/* Obrót i zmiana koloru strzałki po rozwinięciu */
+.faq-section .accordion-button:not(.collapsed)::after {
+  transform: rotate(180deg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+/* ===== Fproduct.php ===== */
+/* Przycisk ulubione */
+.fp-favorite-btn {
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 0.15rem solid rgba(0, 0, 0, 0.2);
+  color: #000;
+  transition: border-color 0.3s ease;
+  z-index: 2;
+}
+.fp-favorite-btn:hover {
+  border-color: #000;
+  cursor: pointer;
+}
+
+/* Grafiki książki */
+.fp-book-image {
+  height: 500px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ===== Fcart.php ===== */
+.checkout-summary-card,
+.checkout-form-card {
+  border: 0;
+  border-radius: 1rem;
+}
+
+.checkout-form-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.checkout-form .form-control,
+.checkout-form .form-select {
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+}
+
+.checkout-form .form-label {
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+}
+
+.checkout-form-footer {
+  margin-top: 1.5rem;
+}
+
+.checkout-steps {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: nowrap;
+}
+
+.checkout-step {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #6c757d;
+  border: 0;
+  background-color: transparent;
+  padding: 0.2rem 0;
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.checkout-step.active,
+.checkout-step.completed {
+  color: #212529;
+}
+
+.checkout-step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9ecef;
+  font-weight: 700;
+  flex-shrink: 0;
+  border: 1px solid #dee2e6;
+}
+
+.checkout-step.active .checkout-step-number,
+.checkout-step.completed .checkout-step-number {
+  background-color: #212529;
+  border-color: #212529;
+  color: #fff;
+}
+
+.checkout-step-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.checkout-step-text strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.checkout-step small {
+  display: block;
+  color: #868e96;
+  font-size: 0.76rem;
+  margin-top: 0.1rem;
+}
+
+.checkout-step.completed .checkout-step-number {
+  background-color: #198754;
+  border-color: #198754;
+}
+
+.checkout-success-card {
+  border: 0;
+  border-radius: 1rem;
+}
+
+.checkout-success-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #198754;
+  color: #fff;
+  font-size: 1.35rem;
+}
+
+.checkout-step-line {
+  flex: 0 0 34px;
+  height: 2px;
+  background-color: #dee2e6;
+}
+
+.checkout-steps.is-delivery .checkout-step-line,
+.checkout-steps.is-completed .checkout-step-line {
+  background-color: #adb5bd;
+}
+
+@media (max-width: 768px) {
+  .checkout-steps {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .checkout-step {
+    flex: 1 1 calc(50% - 0.3rem);
+    min-width: 150px;
+  }
+
+  .checkout-step-line {
+    display: none;
+  }
+
+  .checkout-step-text strong {
+    font-size: 0.9rem;
+  }
+
+  .checkout-step small {
+    font-size: 0.72rem;
+  }
+}
+
+.checkout-delivery-summary {
+  position: sticky;
+  top: 80px;
+}
+
+.checkout-mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.checkout-mini-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.checkout-mini-item small {
+  display: block;
+  color: #6c757d;
+}
