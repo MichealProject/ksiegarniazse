@@ -357,6 +357,75 @@ function refreshCartCount() {
         });
 }
 
+// Funkcja przewijania produktów rekomendowanych
+function initCarousel(carouselSelector, leftBtnId, rightBtnId) {
+
+    // Pobranie kontenera i przycisków
+    const container = document.querySelector(carouselSelector);
+    const leftBtn = document.getElementById(leftBtnId);
+    const rightBtn = document.getElementById(rightBtnId);
+
+    // Określa liczbę widocznych kart w zależności od szerokości okna
+    function getVisibleCount() {
+        const w = window.innerWidth;
+        if (w >= 1400) return 6;
+        if (w >= 1200) return 5;
+        if (w >= 992) return 4;
+        if (w >= 768) return 3;
+        if (w >= 300) return 2;
+        return 1;
+    }
+
+    // Aktualizacja szerokości kart
+    function updateCardWidths() {
+        const visible = getVisibleCount();
+        const gap = 16;
+        const totalGap = gap * (visible - 1);
+        const cardWidth = `calc((100% - ${totalGap}px) / ${visible})`;
+        container.querySelectorAll('.flex-shrink-0').forEach(card => {
+            card.style.width = cardWidth;
+        });
+    }
+
+    // Włączanie / wyłączanie widoczności przycisków przewijania
+    function updateButtons() {
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        leftBtn.style.opacity = container.scrollLeft <= 0 ? "0" : "1";
+        leftBtn.style.pointerEvents = container.scrollLeft <= 0 ? "none" : "auto";
+        rightBtn.style.opacity = container.scrollLeft >= maxScroll - 1 ? "0" : "1";
+        rightBtn.style.pointerEvents = container.scrollLeft >= maxScroll - 1 ? "none" : "auto";
+    }
+
+    // Przewijanie w prawo
+    rightBtn.onclick = () => {
+        const cardWidth = container.querySelector('.flex-shrink-0').offsetWidth + 16;
+        container.scrollBy({ left: cardWidth * getVisibleCount(), behavior: 'smooth' });
+    };
+
+    // Przewijanie w lewo
+    leftBtn.onclick = () => {
+        const cardWidth = container.querySelector('.flex-shrink-0').offsetWidth + 16;
+        container.scrollBy({ left: -cardWidth * getVisibleCount(), behavior: 'smooth' });
+    };
+
+    // Aktualizacja przy zmianie rozmiaru okna
+    window.addEventListener('resize', () => {
+        updateCardWidths();
+        updateButtons();
+    });
+
+    // Aktualizacja przy przewijaniu karuzeli
+    container.addEventListener('scroll', updateButtons);
+
+    // Inicjalizacja
+    updateCardWidths();
+    updateButtons();
+}
+
+// Inicjalizacja obu karuzel dla produktów rekomendowanych
+initCarousel('.carousel1', 'left1', 'right1');
+initCarousel('.carousel2', 'left2', 'right2');
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Ustawienie aktualizacji sumy ceny po zwiększeniu ilości dla koszyka
