@@ -49,7 +49,8 @@ $isOrderCompleted = !empty($orderSuccess);
                 <?php else: ?>
                     <?php foreach ($cartItems as $item): ?>
                         <section class="card mb-3 p-3 d-flex flex-row justify-content-between cart-item position-relative"
-                            data-id="<?php echo $item['id']; ?>">
+                                 style="box-shadow: 0px 2px 5px rgb(0 0 0 / 0.15);"
+                                 data-id="<?php echo $item['id']; ?>">
 
                             <div class="d-flex">
                                 <img src="graphic/books/<?php echo $item['id']; ?>.jpg"
