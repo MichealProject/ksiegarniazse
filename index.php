@@ -103,7 +103,7 @@ if (!empty($_SESSION['login_code'])) {
 $template = new Template();
 $template->setDefault();
 
-$allowed_pages = ['home', 'login', '404', 'logout', 'help', 'regulations', 'product', 'cart','userLogin', 'recomendations', 'favorites'];
+$allowed_pages = ['home', 'login', '404', 'logout', 'help', 'regulations', 'product', 'cart','userLogin', 'recommendations', 'favorites', 'orders'];
 $page = filter_input(INPUT_GET, 'page') ?: 'home';
 
 if (!in_array($page, $allowed_pages, true) || !file_exists(BASE_PATH . "/pages/{$page}.php")) {
