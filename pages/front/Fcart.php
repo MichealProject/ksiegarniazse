@@ -7,7 +7,7 @@
         
         <!-- Produkty -->
         <section class="products col-lg-8">
-            <?php if (empty($cartItems)): ?>
+            <?php if(empty($cartItems)): ?>
                 <section class="card p-4 d-flex flex-column align-items-center justify-content-center cart-item text-center">
                     <img src="graphic/icons/empty_cart.png"
                         style="max-width:120px;"
@@ -65,13 +65,15 @@
 
                         <!-- Ikony usuń i ulubione -->
                         <div class="position-absolute bottom-0 end-0 p-3 d-flex gap-4">
-                            <i class="bi bi-heart"
-                               style="cursor:pointer; font-size:18px;"
-                               onclick="addToFav(<?php echo $item['id']; ?>)"></i>
+                            <button class="btn p-0 border-0 bg-transparent" 
+                                    onclick="toggleFav(this)" 
+                                    data-id="<?= $item['id'] ?>">
+                                <i class="bi <?= in_array($item['id'], $favIds) ? 'bi-heart-fill text-danger' : 'bi-heart' ?>"></i>
+                            </button>
 
-                            <i class="bi bi-trash"
-                               style="cursor:pointer; font-size:18px;"
-                               onclick="updateCart('remove',<?php echo $item['id']; ?>)"></i>
+                            <button class="btn p-0 border-0 bg-transparent" onclick="updateCart('remove', <?= $item['id']; ?>)">
+                                <i class="bi bi-trash" style="font-size:18px;"></i>                                    
+                            </button>
                         </div>
 
                     </section>
