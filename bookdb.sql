@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2026 at 09:06 PM
+-- Generation Time: Mar 26, 2026 at 01:51 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -255,6 +255,14 @@ CREATE TABLE `cart` (
   `ilosc` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`customer_id`, `book_id`, `ilosc`) VALUES
+(23, 1, 4),
+(23, 3, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -333,7 +341,7 @@ INSERT INTO `customers` (`id_customer`, `email`, `password_hash`, `name`, `surna
 (18, 's@s.pl', 'hash', 'Sebastian', 'Sikora', '2026-01-23 11:41:25', 0),
 (19, 't@t.pl', 'hash', 'Tomek', 'Pawlak', '2026-01-23 11:41:25', 0),
 (20, 'u@u.pl', 'hash', 'Ula', 'Stepien', '2026-01-23 11:41:25', 0),
-(22, 'ola@gmail.com', '$2y$10$nIeNAOfFR4O/qkoLoBeIWemVJiAfm3Yd73DzbX959FLTPxiYU5F3m', 'Aleksandra', 'Żuk', '2026-03-23 19:49:49', 0);
+(23, 'robert@gmail.com', '$2y$10$PUecyFCiQp/QWWJ6G41tH.eokld2Lnk8/e22uRYVQ7/j0ZTy9JWg2', 'Robert', 'Szybki', '2026-03-26 13:33:15', 0);
 
 -- --------------------------------------------------------
 
@@ -413,6 +421,19 @@ INSERT INTO `employees` (`id_employee`, `name`, `surname`, `position`, `id_depar
 (18, 'Julia', 'Lis', 'seller', 8, 4950.00, 0),
 (19, 'Rafal', 'Kubiak', '', 4, 7400.00, 0),
 (20, 'Agnieszka', 'Czarnecka', 'seller', 4, 4700.00, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `favorites`
+--
+
+CREATE TABLE `favorites` (
+  `id_book` int(11) NOT NULL,
+  `id_customer` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL DEFAULT 1,
+  `added_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 -- --------------------------------------------------------
 
@@ -653,6 +674,13 @@ ALTER TABLE `employees`
   ADD KEY `fk_employee_department` (`id_department`);
 
 --
+-- Indeksy dla tabeli `favorites`
+--
+ALTER TABLE `favorites`
+  ADD PRIMARY KEY (`id_book`,`id_customer`),
+  ADD KEY `fk_favorites_customer` (`id_customer`);
+
+--
 -- Indeksy dla tabeli `orders`
 --
 ALTER TABLE `orders`
@@ -719,7 +747,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `departments`
@@ -797,6 +825,13 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `employees`
   ADD CONSTRAINT `fk_employee_department` FOREIGN KEY (`id_department`) REFERENCES `departments` (`id_department`);
+
+--
+-- Constraints for table `favorites`
+--
+ALTER TABLE `favorites`
+  ADD CONSTRAINT `fk_favorites_book` FOREIGN KEY (`id_book`) REFERENCES `books` (`id_book`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_favorites_customer` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id_customer`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `orders`
