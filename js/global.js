@@ -422,10 +422,6 @@ function initCarousel(carouselSelector, leftBtnId, rightBtnId) {
     updateButtons();
 }
 
-// Inicjalizacja obu karuzel dla produktów rekomendowanych
-initCarousel('.carousel1', 'left1', 'right1');
-initCarousel('.carousel2', 'left2', 'right2');
-
 document.addEventListener('DOMContentLoaded', () => {
 
     // Ustawienie aktualizacji sumy ceny po zwiększeniu ilości dla koszyka
