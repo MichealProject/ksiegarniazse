@@ -28,8 +28,10 @@ if (!file_exists($imagePath)) {
 
             <!-- Przycisk ulubione -->
             <div class="position-absolute top-0 end-0 mt-3 me-4">
-                <button class="btn d-flex align-items-center justify-content-center rounded-circle fp-favorite-btn">
-                    <i class="bi bi-heart" style="font-size: 1.1rem;"></i>
+                <button class="btn d-flex align-items-center justify-content-center rounded-circle fp-favorite-btn" 
+                        data-id="<?= $product['id_book'] ?>"
+                        onclick="toggleFav(this)">
+                    <i class="bi <?= $isFav ? 'bi-heart-fill text-danger' : 'bi-heart' ?>" style="font-size: 1.1rem;"></i>
                 </button>
             </div>
 
