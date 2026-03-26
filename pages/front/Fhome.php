@@ -4,7 +4,7 @@
             
         <section class="container mb-5">
 
-            <div id="mainBanner" class="carousel slide" data-bs-pause="false" data-bs-ride="carousel">
+            <div id="mainBanner" class="carousel slide shadow" data-bs-pause="false" data-bs-ride="carousel">
 
                 <div class="carousel-inner">
                     <!-- Slide 1-4 -->
@@ -56,7 +56,7 @@
             ?>
                 <!-- Dane produktu i jego wygląd -->
                 <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-6 mb-4">
-                    <div class="card shadow-sm book-card position-relative">
+                    <div class="card shadow book-card position-relative" >
 
                         <!-- Klikalność całej karty -->
                         <a href="<?= e($productLink) ?>" class="stretched-link"></a>
