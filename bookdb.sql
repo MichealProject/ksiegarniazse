@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2026 at 01:51 PM
+-- Generation Time: Mar 26, 2026 at 11:03 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -185,23 +185,23 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id_book`, `title`, `description`, `price`, `stock`, `pages`, `cover_type`, `release_date`, `id_category`, `id_supplier`) VALUES
-(1, 'Wiedźmin: Ostatnie życzenie', 'Saga, która zdefiniowała współczesne europejskie fantasy. „Ostatnie życzenie” to zbiór opowiadań wprowadzający w brutalny, mroczny i moralnie niejednoznaczny świat, w którym granica między dobrem a złem niemal nie istnieje. Geralt z Rivii – mutant, wiedźmin, zabójca potworów – nie jest klasycznym bohaterem. To postać tragiczna, rozdarta pomiędzy kodeksem zawodowym, własnym sumieniem i brutalną rzeczywistością świata, który nie zna litości.\r\n\r\nKażda historia to osobna opowieść o wyborach, które nie mają dobrych rozwiązań, o cenie neutralności i o konsekwencjach decyzji podejmowanych w świecie pełnym przemocy, magii, polityki i manipulacji. Sapkowski buduje uniwersum, w którym potwory często okazują się bardziej ludzkie niż ludzie, a człowieczeństwo bywa największym przekleństwem.\r\n\r\nTo książka o wykluczeniu, inności, przeznaczeniu, miłości i samotności. O życiu na marginesie społeczeństwa, o walce z własną naturą i o próbie zachowania moralności w świecie, który systemowo niszczy wartości.', 49.99, 100, 332, 'miękka', '1993-01-01', 1, 4),
-(2, 'Hobbit, czyli tam i z powrotem', 'Ciepła, klasyczna opowieść o podróży, która zmienia zwykłe życie w legendę. Bilbo Baggins, spokojny hobbit z Shire, zostaje wyrwany z bezpiecznego świata rutyny i wciągnięty w wyprawę, której nigdy by nie wybrał z własnej woli.\r\n\r\nPodróż przez dzikie krainy Śródziemia staje się metaforą dojrzewania, przekraczania własnych ograniczeń i odkrywania w sobie siły, o której istnieniu bohater nie miał pojęcia.\r\n\r\nTolkien tworzy baśniowy świat pełen magii, mitologii i symboliki, który zachwyca klimatem, humorem i głębokim przesłaniem o odwadze, przyjaźni i odpowiedzialności.', 39.99, 80, 310, 'miękka', '1937-09-21', 1, 1),
-(3, 'Gra o tron', 'Epicka opowieść o władzy, zdradzie i ambicji, w której nie istnieje sprawiedliwy porządek świata. Siedem Królestw staje się areną brutalnej walki politycznej, gdzie każda decyzja niesie śmierć, a każdy sojusz może stać się zdradą.\r\n\r\nMartin tworzy realistyczne, bezlitosne fantasy, w którym bohaterowie są ludzcy – pełni wad, lęków i sprzeczności.\r\n\r\nTo saga o upadku ideałów, rozpadzie rodzin i cenie władzy, która zawsze wymaga ofiar.', 59.99, 70, 694, 'twarda', '1996-08-06', 1, 2),
-(4, 'Diuna', 'Monumentalne dzieło science fiction, które łączy politykę, religię, ekologię i filozofię w jednym uniwersum. Arrakis staje się centrum galaktycznych konfliktów, a los młodego Paula Atrydy splata się z przeznaczeniem całych cywilizacji.\r\n\r\nTo opowieść o manipulacji, fanatyzmie, władzy i odpowiedzialności za masy. Herbert tworzy świat, który jest metaforą realnych struktur politycznych i społecznych.\r\n\r\n„Diuna” to literatura idei, nie tylko przygody – książka, która zmienia sposób myślenia o science fiction.', 54.99, 60, 640, 'twarda', '1965-08-01', 2, 5),
-(5, 'To', 'Wielowarstwowa historia grozy, w której horror staje się metaforą dziecięcych traum i dorosłych lęków. Grupa przyjaciół mierzy się z pradawnym złem, które przybiera postać klauna i żywi się strachem.\r\n\r\nStephen King buduje narrację o pamięci, dorastaniu i psychologicznych bliznach, które nie znikają wraz z wiekiem.\r\n\r\nTo nie tylko horror – to głęboka opowieść o przyjaźni, traumie i walce z własnymi demonami.', 44.99, 90, 1138, 'miękka', '1986-09-15', 3, 1),
-(6, 'Kod Leonarda da Vinci', 'Sensacyjny thriller, który łączy historię, religię, sztukę i kryptografię w globalną intrygę. Robert Langdon zostaje wciągnięty w świat tajnych stowarzyszeń, symboli i starożytnych kodów.\r\n\r\nNarracja prowadzi przez muzea, kościoły i archiwa Europy, odkrywając alternatywne interpretacje historii i religii.\r\n\r\nTo dynamiczna opowieść o tajemnicy, władzy informacji i manipulacji prawdą.', 42.99, 85, 689, 'miękka', '2003-03-18', 5, 2),
-(7, 'Harry Potter i Kamień Filozoficzny', 'Powieść, która zapoczątkowała jedną z najważniejszych sag literatury młodzieżowej i na nowo zdefiniowała współczesną fantastykę. „Harry Potter i Kamień Filozoficzny” to historia o chłopcu wychowanym w świecie pozbawionym magii, który odkrywa swoje prawdziwe dziedzictwo i wkracza do rzeczywistości pełnej czarów, tajemnic oraz niebezpieczeństw.\r\n\r\nW murach Hogwartu Harry po raz pierwszy doświadcza przyjaźni, lojalności i poczucia przynależności, ale też staje twarzą w twarz z cieniem przeszłości, który naznaczył jego życie jeszcze przed narodzinami. To opowieść o dorastaniu, odwadze i wyborach, które kształtują tożsamość. Rowling buduje świat, w którym magia jest tłem dla uniwersalnej historii o samotności, potrzebie miłości i sile dobra zdolnej przeciwstawić się złu.\r\n\r\nTo książka o odnajdywaniu siebie, o przekraczaniu lęku i o odkrywaniu, że prawdziwa siła nie tkwi w nadnaturalnych zdolnościach, lecz w charakterze i sercu.', 45.99, 120, 223, 'twarda', '1997-06-26', 1, 2),
-(8, 'Rok 1984', 'Jedna z najważniejszych antyutopii XX wieku – przejmująca wizja świata, w którym wolność została zastąpiona permanentną kontrolą, a prawda stała się narzędziem władzy. „Rok 1984” przedstawia rzeczywistość totalitarnego państwa, w którym jednostka nie ma prawa do prywatności, niezależnej myśli ani sprzeciwu wobec systemu.\r\n\r\nLos Winstona Smitha to historia buntu skazanego na klęskę – próby zachowania resztek człowieczeństwa w świecie zdominowanym przez propagandę, manipulację językiem i wszechobecny strach. Orwell tworzy wizję społeczeństwa, w którym historia jest nieustannie przepisywana, a kontrola nad językiem oznacza kontrolę nad umysłem.\r\n\r\nTo powieść o mechanizmach władzy, o kruchości prawdy i o samotności człowieka w starciu z bezdusznym systemem. Ostrzeżenie przed światem, w którym największym zagrożeniem nie jest przemoc fizyczna, lecz zniszczenie zdolności do samodzielnego myślenia.', 34.99, 110, 328, 'miękka', '1949-06-08', 10, 3),
-(9, 'Zbrodnia i kara', 'Arcydzieło literatury psychologicznej, wnikliwe studium winy, sumienia i moralnej odpowiedzialności. „Zbrodnia i kara” to opowieść o młodym studencie, który w imię własnej teorii o wybitnych jednostkach dopuszcza się morderstwa, wierząc, że stoi ponad prawem i etyką.\r\n\r\nZbrodnia szybko przestaje być aktem filozoficznego eksperymentu, a staje się początkiem wewnętrznego rozpadu. Dostojewski prowadzi czytelnika przez labirynt psychiki Raskolnikowa – jego lęków, urojeń, poczucia wyższości i narastającego poczucia winy. Petersburg jawi się tu jako miasto duszne, przytłaczające, współtworzące atmosferę moralnego i egzystencjalnego kryzysu.\r\n\r\nTo powieść o granicach ludzkiej wolności, o konsekwencjach przekroczenia moralnego porządku i o możliwości odkupienia. O cierpieniu jako drodze do prawdy, o upadku i o nadziei, która rodzi się dopiero wtedy, gdy człowiek odważy się spojrzeć w głąb własnej duszy.', 29.99, 50, 671, 'miękka', '1866-01-01', 18, 10),
-(10, 'Pan Tadeusz', 'Epopeja narodowa, która stała się jednym z fundamentów polskiej tożsamości literackiej. „Pan Tadeusz” to opowieść o świecie odchodzącym w przeszłość – o szlacheckiej Litwie, sporach rodowych, honorze i obyczajach, które tworzyły rytm dawnej Rzeczypospolitej. W tle prywatnych konfliktów i miłosnych perypetii rozgrywa się jednak historia większa – tęsknota za wolnością i nadzieja na odzyskanie niepodległości.\r\n\r\nMickiewicz buduje barwną panoramę społeczeństwa, w której codzienność – uczty, polowania, spory o zamek – splata się z dramatem narodowym. To świat pełen nostalgii, humoru i ciepła, ale także świadomości przemijania. Autor idealizuje utraconą ojczyznę, tworząc mit wspólnoty opartej na tradycji, pamięci i solidarności.\r\n\r\nTo poemat o patriotyzmie, dojrzewaniu i pojednaniu. O potrzebie zakorzenienia, o sile wspólnoty i o wierze, że nawet w czasach upadku możliwe jest moralne odrodzenie.', 24.99, 40, 340, 'twarda', '1834-06-28', 17, 18),
-(11, 'Sapiens: Od zwierząt do bogów', 'Jedna z najgłośniejszych książek popularnonaukowych XXI wieku – szeroka, prowokująca do myślenia opowieść o dziejach człowieka od prehistorii po erę biotechnologii. „Sapiens” nie jest klasyczną historią cywilizacji, lecz próbą zrozumienia, jak fikcje, w które wierzymy – religie, pieniądze, narody, prawa – umożliwiły Homo sapiens zdominowanie planety.\r\n\r\nHarari analizuje kluczowe rewolucje: poznawczą, rolniczą i naukową, pokazując ich konsekwencje dla jednostki i społeczeństwa. Zadaje pytania o cenę postępu, o szczęście w świecie nadmiaru i o przyszłość gatunku, który zyskał niemal boską władzę nad naturą, lecz wciąż nie potrafi odpowiedzieć na pytanie, kim chce się stać.\r\n\r\nTo książka o potędze wyobraźni, o paradoksach rozwoju i o odpowiedzialności za przyszłość. O tym, że największą siłą człowieka nie jest fizyczna dominacja, lecz zdolność do tworzenia wspólnych narracji.', 49.99, 70, 512, 'twarda', '2011-01-01', 7, 3),
-(12, 'Psychologia manipulacji', 'Thriller, w którym wiedza o ludzkiej psychice staje się narzędziem władzy i kontroli. „Psychologia manipulacji” to opowieść o świecie, w którym granica między perswazją a manipulacją zaciera się w cieniu polityki, mediów i technologii. W centrum wydarzeń znajduje się konflikt między prawdą a interesem – między tym, co ujawnione, a tym, co starannie zaplanowane.\r\n\r\nBrown buduje napięcie wokół mechanizmów wpływu: strachu, autorytetu, emocji i informacji podawanych w odpowiednim kontekście. Bohaterowie zostają wciągnięci w grę, w której stawką jest nie tylko reputacja czy władza, lecz także zdolność społeczeństwa do samodzielnego myślenia.\r\n\r\nTo historia o sile narracji, o podatności ludzkiego umysłu na sugestię i o cienkiej granicy między świadomym wyborem a decyzją podjętą pod wpływem subtelnej presji. O świecie, w którym największą bronią nie jest przemoc, lecz umiejętność kształtowania cudzych przekonań.', 59.99, 65, 384, 'miękka', '2010-01-01', 13, 20),
-(13, 'Czysty kod', 'Jedna z najważniejszych książek w historii programowania, która ukształtowała sposób myślenia o jakości kodu. „Czysty kod” to manifest profesjonalizmu w świecie tworzenia oprogramowania — opowieść o odpowiedzialności programisty za czytelność, strukturę i trwałość tworzonych rozwiązań.\r\n\r\nMartin pokazuje, że dobry kod nie jest dziełem przypadku ani wyłącznie efektem talentu, lecz wynikiem dyscypliny, zasad i dbałości o detale. Analizując konkretne przykłady, uczy jak pisać funkcje, klasy i testy, które są zrozumiałe, elastyczne i odporne na chaos rozrastających się projektów.\r\n\r\nTo książka o etyce pracy, o szacunku do współtwórców kodu i o przekonaniu, że prostota jest najwyższą formą dojrzałości technicznej. O tym, że programowanie to nie tylko rozwiązywanie problemów — to także sztuka komunikacji.', 79.99, 30, 464, 'miękka', '2008-08-01', 9, 1),
-(14, 'Java. Podstawy', 'Kompleksowe wprowadzenie do jednego z najważniejszych języków programowania współczesnego świata. „Java: Podstawy” prowadzi czytelnika od pierwszych linii kodu aż po zrozumienie mechanizmów programowania obiektowego, struktur danych i pracy z bibliotekami.\r\n\r\nAutor krok po kroku wyjaśnia składnię, logikę działania programów oraz zasady budowania stabilnych aplikacji. Duży nacisk kładzie na przejrzystość, praktyczne przykłady i zrozumienie fundamentów, które pozwalają rozwijać się dalej — w kierunku aplikacji desktopowych, webowych czy systemów backendowych.\r\n\r\nTo książka o budowaniu solidnych podstaw. O myśleniu algorytmicznym, strukturze i odpowiedzialności za kod, który ma działać nie tylko dziś, lecz także w przyszłości.', 69.99, 25, 720, 'miękka', '2015-01-01', 9, 1),
-(15, 'Python. Wprowadzenie', 'Rozbudowany przewodnik po jednym z najbardziej przystępnych i wszechstronnych języków programowania. „Python. Wprowadzenie do programowania” to książka, która nie tylko uczy składni, ale przede wszystkim sposobu myślenia charakterystycznego dla Pythona — prostego, czytelnego i efektywnego.\r\n\r\nLutz wprowadza w świat typów danych, funkcji, modułów i programowania obiektowego, pokazując jak tworzyć przejrzyste oraz elastyczne aplikacje. Stopniowo przechodzi od podstaw do bardziej zaawansowanych zagadnień, budując zrozumienie zamiast jedynie prezentować rozwiązania.\r\n\r\nTo publikacja o świadomym programowaniu — o pisaniu kodu, który jest zrozumiały, elegancki i skalowalny. O języku, który łączy prostotę z ogromnymi możliwościami i otwiera drogę do pracy w wielu obszarach nowoczesnej technologii.', 74.99, 35, 640, 'miękka', '2016-01-01', 9, 1),
-(16, 'Marketing', 'Jedno z najważniejszych opracowań z zakresu marketingu, które definiuje współczesne podejście do budowania relacji z klientem. „Marketing. Zarządzanie wartością klienta” to kompleksowe ujęcie strategii rynkowych w świecie dynamicznych zmian, globalnej konkurencji i rosnących oczekiwań konsumentów.\r\n\r\nKotler pokazuje marketing jako proces tworzenia, komunikowania i dostarczania wartości — nie jako sprzedażowy trik, lecz długofalową strategię opartą na analizie potrzeb, segmentacji rynku i budowaniu przewagi konkurencyjnej. To książka o zarządzaniu marką, lojalnością i doświadczeniem klienta w realiach gospodarki cyfrowej.\r\n\r\nTo publikacja o odpowiedzialnym biznesie, o myśleniu strategicznym i o zrozumieniu, że prawdziwa wartość firmy rodzi się z relacji, nie z jednorazowej transakcji.', 54.99, 45, 480, 'twarda', '2012-01-01', 14, 7),
-(17, 'Umysł zabójcy', 'Wnikliwe studium psychiki seryjnych morderców autorstwa jednego z najbardziej znanych profilerów FBI. „Umysł zabójcy” to zapis wieloletnich doświadczeń w analizowaniu najgroźniejszych przestępców oraz próba zrozumienia motywów, które stoją za brutalnymi zbrodniami.\r\n\r\nDouglas odsłania kulisy pracy profilera, pokazując, jak zachowania, szczegóły miejsca zbrodni i schematy działania pozwalają odtworzyć osobowość sprawcy. To książka nie tylko o przestępcach, lecz także o cienkiej granicy między normalnością a patologią.\r\n\r\nTo opowieść o mrocznej stronie ludzkiej natury, o obsesjach i traumach, które mogą prowadzić do przemocy, oraz o próbie racjonalnego uporządkowania chaosu zbrodni.', 39.99, 55, 450, 'miękka', '2014-01-01', 6, 15),
+(1, 'Wiedźmin: Ostatnie życzenie', 'Saga, która zdefiniowała współczesne europejskie fantasy. „Ostatnie życzenie” to zbiór opowiadań wprowadzający w brutalny, mroczny i moralnie niejednoznaczny świat, w którym granica między dobrem a złem niemal nie istnieje. Geralt z Rivii – mutant, wiedźmin, zabójca potworów – nie jest klasycznym bohaterem. To postać tragiczna, rozdarta pomiędzy kodeksem zawodowym, własnym sumieniem i brutalną rzeczywistością świata, który nie zna litości.\r\n\r\nKażda historia to osobna opowieść o wyborach, które nie mają dobrych rozwiązań, o cenie neutralności i o konsekwencjach decyzji podejmowanych w świecie pełnym przemocy, magii, polityki i manipulacji. Sapkowski buduje uniwersum, w którym potwory często okazują się bardziej ludzkie niż ludzie, a człowieczeństwo bywa największym przekleństwem.\r\n\r\nTo książka o wykluczeniu, inności, przeznaczeniu, miłości i samotności. O życiu na marginesie społeczeństwa, o walce z własną naturą i o próbie zachowania moralności w świecie, który systemowo niszczy wartości.', 49.99, 94, 332, 'miękka', '1993-01-01', 1, 4),
+(2, 'Hobbit, czyli tam i z powrotem', 'Ciepła, klasyczna opowieść o podróży, która zmienia zwykłe życie w legendę. Bilbo Baggins, spokojny hobbit z Shire, zostaje wyrwany z bezpiecznego świata rutyny i wciągnięty w wyprawę, której nigdy by nie wybrał z własnej woli.\r\n\r\nPodróż przez dzikie krainy Śródziemia staje się metaforą dojrzewania, przekraczania własnych ograniczeń i odkrywania w sobie siły, o której istnieniu bohater nie miał pojęcia.\r\n\r\nTolkien tworzy baśniowy świat pełen magii, mitologii i symboliki, który zachwyca klimatem, humorem i głębokim przesłaniem o odwadze, przyjaźni i odpowiedzialności.', 39.99, 76, 310, 'miękka', '1937-09-21', 1, 1),
+(3, 'Gra o tron', 'Epicka opowieść o władzy, zdradzie i ambicji, w której nie istnieje sprawiedliwy porządek świata. Siedem Królestw staje się areną brutalnej walki politycznej, gdzie każda decyzja niesie śmierć, a każdy sojusz może stać się zdradą.\r\n\r\nMartin tworzy realistyczne, bezlitosne fantasy, w którym bohaterowie są ludzcy – pełni wad, lęków i sprzeczności.\r\n\r\nTo saga o upadku ideałów, rozpadzie rodzin i cenie władzy, która zawsze wymaga ofiar.', 59.99, 66, 694, 'twarda', '1996-08-06', 1, 2),
+(4, 'Diuna', 'Monumentalne dzieło science fiction, które łączy politykę, religię, ekologię i filozofię w jednym uniwersum. Arrakis staje się centrum galaktycznych konfliktów, a los młodego Paula Atrydy splata się z przeznaczeniem całych cywilizacji.\r\n\r\nTo opowieść o manipulacji, fanatyzmie, władzy i odpowiedzialności za masy. Herbert tworzy świat, który jest metaforą realnych struktur politycznych i społecznych.\r\n\r\n„Diuna” to literatura idei, nie tylko przygody – książka, która zmienia sposób myślenia o science fiction.', 54.99, 57, 640, 'twarda', '1965-08-01', 2, 5),
+(5, 'To', 'Wielowarstwowa historia grozy, w której horror staje się metaforą dziecięcych traum i dorosłych lęków. Grupa przyjaciół mierzy się z pradawnym złem, które przybiera postać klauna i żywi się strachem.\r\n\r\nStephen King buduje narrację o pamięci, dorastaniu i psychologicznych bliznach, które nie znikają wraz z wiekiem.\r\n\r\nTo nie tylko horror – to głęboka opowieść o przyjaźni, traumie i walce z własnymi demonami.', 44.99, 84, 1138, 'miękka', '1986-09-15', 3, 1),
+(6, 'Kod Leonarda da Vinci', 'Sensacyjny thriller, który łączy historię, religię, sztukę i kryptografię w globalną intrygę. Robert Langdon zostaje wciągnięty w świat tajnych stowarzyszeń, symboli i starożytnych kodów.\r\n\r\nNarracja prowadzi przez muzea, kościoły i archiwa Europy, odkrywając alternatywne interpretacje historii i religii.\r\n\r\nTo dynamiczna opowieść o tajemnicy, władzy informacji i manipulacji prawdą.', 42.99, 82, 689, 'miękka', '2003-03-18', 5, 2),
+(7, 'Harry Potter i Kamień Filozoficzny', 'Powieść, która zapoczątkowała jedną z najważniejszych sag literatury młodzieżowej i na nowo zdefiniowała współczesną fantastykę. „Harry Potter i Kamień Filozoficzny” to historia o chłopcu wychowanym w świecie pozbawionym magii, który odkrywa swoje prawdziwe dziedzictwo i wkracza do rzeczywistości pełnej czarów, tajemnic oraz niebezpieczeństw.\r\n\r\nW murach Hogwartu Harry po raz pierwszy doświadcza przyjaźni, lojalności i poczucia przynależności, ale też staje twarzą w twarz z cieniem przeszłości, który naznaczył jego życie jeszcze przed narodzinami. To opowieść o dorastaniu, odwadze i wyborach, które kształtują tożsamość. Rowling buduje świat, w którym magia jest tłem dla uniwersalnej historii o samotności, potrzebie miłości i sile dobra zdolnej przeciwstawić się złu.\r\n\r\nTo książka o odnajdywaniu siebie, o przekraczaniu lęku i o odkrywaniu, że prawdziwa siła nie tkwi w nadnaturalnych zdolnościach, lecz w charakterze i sercu.', 45.99, 118, 223, 'twarda', '1997-06-26', 1, 2),
+(8, 'Rok 1984', 'Jedna z najważniejszych antyutopii XX wieku – przejmująca wizja świata, w którym wolność została zastąpiona permanentną kontrolą, a prawda stała się narzędziem władzy. „Rok 1984” przedstawia rzeczywistość totalitarnego państwa, w którym jednostka nie ma prawa do prywatności, niezależnej myśli ani sprzeciwu wobec systemu.\r\n\r\nLos Winstona Smitha to historia buntu skazanego na klęskę – próby zachowania resztek człowieczeństwa w świecie zdominowanym przez propagandę, manipulację językiem i wszechobecny strach. Orwell tworzy wizję społeczeństwa, w którym historia jest nieustannie przepisywana, a kontrola nad językiem oznacza kontrolę nad umysłem.\r\n\r\nTo powieść o mechanizmach władzy, o kruchości prawdy i o samotności człowieka w starciu z bezdusznym systemem. Ostrzeżenie przed światem, w którym największym zagrożeniem nie jest przemoc fizyczna, lecz zniszczenie zdolności do samodzielnego myślenia.', 34.99, 107, 328, 'miękka', '1949-06-08', 10, 3),
+(9, 'Zbrodnia i kara', 'Arcydzieło literatury psychologicznej, wnikliwe studium winy, sumienia i moralnej odpowiedzialności. „Zbrodnia i kara” to opowieść o młodym studencie, który w imię własnej teorii o wybitnych jednostkach dopuszcza się morderstwa, wierząc, że stoi ponad prawem i etyką.\r\n\r\nZbrodnia szybko przestaje być aktem filozoficznego eksperymentu, a staje się początkiem wewnętrznego rozpadu. Dostojewski prowadzi czytelnika przez labirynt psychiki Raskolnikowa – jego lęków, urojeń, poczucia wyższości i narastającego poczucia winy. Petersburg jawi się tu jako miasto duszne, przytłaczające, współtworzące atmosferę moralnego i egzystencjalnego kryzysu.\r\n\r\nTo powieść o granicach ludzkiej wolności, o konsekwencjach przekroczenia moralnego porządku i o możliwości odkupienia. O cierpieniu jako drodze do prawdy, o upadku i o nadziei, która rodzi się dopiero wtedy, gdy człowiek odważy się spojrzeć w głąb własnej duszy.', 29.99, 48, 671, 'miękka', '1866-01-01', 18, 10),
+(10, 'Pan Tadeusz', 'Epopeja narodowa, która stała się jednym z fundamentów polskiej tożsamości literackiej. „Pan Tadeusz” to opowieść o świecie odchodzącym w przeszłość – o szlacheckiej Litwie, sporach rodowych, honorze i obyczajach, które tworzyły rytm dawnej Rzeczypospolitej. W tle prywatnych konfliktów i miłosnych perypetii rozgrywa się jednak historia większa – tęsknota za wolnością i nadzieja na odzyskanie niepodległości.\r\n\r\nMickiewicz buduje barwną panoramę społeczeństwa, w której codzienność – uczty, polowania, spory o zamek – splata się z dramatem narodowym. To świat pełen nostalgii, humoru i ciepła, ale także świadomości przemijania. Autor idealizuje utraconą ojczyznę, tworząc mit wspólnoty opartej na tradycji, pamięci i solidarności.\r\n\r\nTo poemat o patriotyzmie, dojrzewaniu i pojednaniu. O potrzebie zakorzenienia, o sile wspólnoty i o wierze, że nawet w czasach upadku możliwe jest moralne odrodzenie.', 24.99, 38, 340, 'twarda', '1834-06-28', 17, 18),
+(11, 'Sapiens: Od zwierząt do bogów', 'Jedna z najgłośniejszych książek popularnonaukowych XXI wieku – szeroka, prowokująca do myślenia opowieść o dziejach człowieka od prehistorii po erę biotechnologii. „Sapiens” nie jest klasyczną historią cywilizacji, lecz próbą zrozumienia, jak fikcje, w które wierzymy – religie, pieniądze, narody, prawa – umożliwiły Homo sapiens zdominowanie planety.\r\n\r\nHarari analizuje kluczowe rewolucje: poznawczą, rolniczą i naukową, pokazując ich konsekwencje dla jednostki i społeczeństwa. Zadaje pytania o cenę postępu, o szczęście w świecie nadmiaru i o przyszłość gatunku, który zyskał niemal boską władzę nad naturą, lecz wciąż nie potrafi odpowiedzieć na pytanie, kim chce się stać.\r\n\r\nTo książka o potędze wyobraźni, o paradoksach rozwoju i o odpowiedzialności za przyszłość. O tym, że największą siłą człowieka nie jest fizyczna dominacja, lecz zdolność do tworzenia wspólnych narracji.', 49.99, 69, 512, 'twarda', '2011-01-01', 7, 3),
+(12, 'Psychologia manipulacji', 'Thriller, w którym wiedza o ludzkiej psychice staje się narzędziem władzy i kontroli. „Psychologia manipulacji” to opowieść o świecie, w którym granica między perswazją a manipulacją zaciera się w cieniu polityki, mediów i technologii. W centrum wydarzeń znajduje się konflikt między prawdą a interesem – między tym, co ujawnione, a tym, co starannie zaplanowane.\r\n\r\nBrown buduje napięcie wokół mechanizmów wpływu: strachu, autorytetu, emocji i informacji podawanych w odpowiednim kontekście. Bohaterowie zostają wciągnięci w grę, w której stawką jest nie tylko reputacja czy władza, lecz także zdolność społeczeństwa do samodzielnego myślenia.\r\n\r\nTo historia o sile narracji, o podatności ludzkiego umysłu na sugestię i o cienkiej granicy między świadomym wyborem a decyzją podjętą pod wpływem subtelnej presji. O świecie, w którym największą bronią nie jest przemoc, lecz umiejętność kształtowania cudzych przekonań.', 59.99, 63, 384, 'miękka', '2010-01-01', 13, 20),
+(13, 'Czysty kod', 'Jedna z najważniejszych książek w historii programowania, która ukształtowała sposób myślenia o jakości kodu. „Czysty kod” to manifest profesjonalizmu w świecie tworzenia oprogramowania — opowieść o odpowiedzialności programisty za czytelność, strukturę i trwałość tworzonych rozwiązań.\r\n\r\nMartin pokazuje, że dobry kod nie jest dziełem przypadku ani wyłącznie efektem talentu, lecz wynikiem dyscypliny, zasad i dbałości o detale. Analizując konkretne przykłady, uczy jak pisać funkcje, klasy i testy, które są zrozumiałe, elastyczne i odporne na chaos rozrastających się projektów.\r\n\r\nTo książka o etyce pracy, o szacunku do współtwórców kodu i o przekonaniu, że prostota jest najwyższą formą dojrzałości technicznej. O tym, że programowanie to nie tylko rozwiązywanie problemów — to także sztuka komunikacji.', 79.99, 29, 464, 'miękka', '2008-08-01', 9, 1),
+(14, 'Java. Podstawy', 'Kompleksowe wprowadzenie do jednego z najważniejszych języków programowania współczesnego świata. „Java: Podstawy” prowadzi czytelnika od pierwszych linii kodu aż po zrozumienie mechanizmów programowania obiektowego, struktur danych i pracy z bibliotekami.\r\n\r\nAutor krok po kroku wyjaśnia składnię, logikę działania programów oraz zasady budowania stabilnych aplikacji. Duży nacisk kładzie na przejrzystość, praktyczne przykłady i zrozumienie fundamentów, które pozwalają rozwijać się dalej — w kierunku aplikacji desktopowych, webowych czy systemów backendowych.\r\n\r\nTo książka o budowaniu solidnych podstaw. O myśleniu algorytmicznym, strukturze i odpowiedzialności za kod, który ma działać nie tylko dziś, lecz także w przyszłości.', 69.99, 24, 720, 'miękka', '2015-01-01', 9, 1),
+(15, 'Python. Wprowadzenie', 'Rozbudowany przewodnik po jednym z najbardziej przystępnych i wszechstronnych języków programowania. „Python. Wprowadzenie do programowania” to książka, która nie tylko uczy składni, ale przede wszystkim sposobu myślenia charakterystycznego dla Pythona — prostego, czytelnego i efektywnego.\r\n\r\nLutz wprowadza w świat typów danych, funkcji, modułów i programowania obiektowego, pokazując jak tworzyć przejrzyste oraz elastyczne aplikacje. Stopniowo przechodzi od podstaw do bardziej zaawansowanych zagadnień, budując zrozumienie zamiast jedynie prezentować rozwiązania.\r\n\r\nTo publikacja o świadomym programowaniu — o pisaniu kodu, który jest zrozumiały, elegancki i skalowalny. O języku, który łączy prostotę z ogromnymi możliwościami i otwiera drogę do pracy w wielu obszarach nowoczesnej technologii.', 74.99, 34, 640, 'miękka', '2016-01-01', 9, 1),
+(16, 'Marketing', 'Jedno z najważniejszych opracowań z zakresu marketingu, które definiuje współczesne podejście do budowania relacji z klientem. „Marketing. Zarządzanie wartością klienta” to kompleksowe ujęcie strategii rynkowych w świecie dynamicznych zmian, globalnej konkurencji i rosnących oczekiwań konsumentów.\r\n\r\nKotler pokazuje marketing jako proces tworzenia, komunikowania i dostarczania wartości — nie jako sprzedażowy trik, lecz długofalową strategię opartą na analizie potrzeb, segmentacji rynku i budowaniu przewagi konkurencyjnej. To książka o zarządzaniu marką, lojalnością i doświadczeniem klienta w realiach gospodarki cyfrowej.\r\n\r\nTo publikacja o odpowiedzialnym biznesie, o myśleniu strategicznym i o zrozumieniu, że prawdziwa wartość firmy rodzi się z relacji, nie z jednorazowej transakcji.', 54.99, 44, 480, 'twarda', '2012-01-01', 14, 7),
+(17, 'Umysł zabójcy', 'Wnikliwe studium psychiki seryjnych morderców autorstwa jednego z najbardziej znanych profilerów FBI. „Umysł zabójcy” to zapis wieloletnich doświadczeń w analizowaniu najgroźniejszych przestępców oraz próba zrozumienia motywów, które stoją za brutalnymi zbrodniami.\r\n\r\nDouglas odsłania kulisy pracy profilera, pokazując, jak zachowania, szczegóły miejsca zbrodni i schematy działania pozwalają odtworzyć osobowość sprawcy. To książka nie tylko o przestępcach, lecz także o cienkiej granicy między normalnością a patologią.\r\n\r\nTo opowieść o mrocznej stronie ludzkiej natury, o obsesjach i traumach, które mogą prowadzić do przemocy, oraz o próbie racjonalnego uporządkowania chaosu zbrodni.', 39.99, 54, 450, 'miękka', '2014-01-01', 6, 15),
 (18, 'Kajko i Kokosz: Szkoła latania', 'Pierwszy tom kultowej serii komiksowej, która na stałe wpisała się w historię polskiej popkultury. „Szkoła latania” to pełna humoru opowieść o przygodach dwóch słowiańskich wojów — sprytnego Kajka i silnego, impulsywnego Kokosza.\r\n\r\nChrista łączy elementy legend, satyry i komedii sytuacyjnej, tworząc świat grodu Mirmiłowo, w którym codzienne konflikty nabierają epickiego wymiaru. Lekki ton i inteligentny humor sprawiają, że komiks trafia zarówno do młodszych, jak i dorosłych czytelników.\r\n\r\nTo historia o przyjaźni, odwadze i absurdach władzy — opowiedziana z dystansem i charakterystycznym, ponadczasowym wdziękiem.', 29.99, 90, 48, 'miękka', '1975-01-01', 19, 9),
 (19, 'Kubuś Puchatek', 'Ponadczasowa opowieść o mieszkańcach Stumilowego Lasu, która łączy prostotę dziecięcej narracji z subtelną refleksją o przyjaźni i dorastaniu. „Kubuś Puchatek” to zbiór historii o przygodach misia o małym rozumku i jego przyjaciół — Prosiaczka, Tygryska, Kłapouchego i Krzysia.\r\n\r\nMilne tworzy świat ciepły, bezpieczny i pełen łagodnego humoru, w którym codzienne drobiazgi stają się wielkimi wydarzeniami. Dialogi, pozornie naiwne, kryją w sobie mądrość i wrażliwość na emocje.\r\n\r\nTo książka o lojalności, prostocie i sile relacji. O tym, że szczęście często ukrywa się w małych rzeczach i wspólnie spędzonym czasie.', 19.99, 150, 176, 'twarda', '1926-10-14', 11, 18),
 (20, 'Cuda Polski', 'Album prezentujący najpiękniejsze zakątki kraju — od majestatycznych gór po nadmorskie krajobrazy i zabytkowe miasta. „Cuda Polski” to wizualna podróż przez miejsca, które kształtują tożsamość kulturową i przyrodniczą Polski.\r\n\r\nPublikacja łączy fotografie z opisami historycznymi i ciekawostkami, ukazując zarówno znane symbole, jak i mniej oczywiste perełki architektury oraz natury. To opowieść o różnorodności krajobrazów i bogactwie dziedzictwa.\r\n\r\nTo książka o zachwycie, o odkrywaniu na nowo znanych miejsc i o dumie z przestrzeni, która łączy historię, kulturę i przyrodę w jedną spójną opowieść.', 44.99, 60, 320, 'twarda', '2020-01-01', 16, 16);
@@ -260,8 +260,17 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`customer_id`, `book_id`, `ilosc`) VALUES
-(23, 1, 4),
-(23, 3, 3);
+(23, 1, 1),
+(23, 2, 1),
+(23, 4, 1),
+(23, 5, 1),
+(23, 6, 1),
+(23, 9, 1),
+(23, 10, 3),
+(23, 11, 1),
+(23, 12, 1),
+(23, 13, 1),
+(23, 15, 1);
 
 -- --------------------------------------------------------
 
@@ -450,6 +459,31 @@ CREATE TABLE `orders` (
   `total_price` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id_order`, `id_customer`, `id_employee`, `order_date`, `status`, `total_price`) VALUES
+(1, 23, 1, '2026-01-13 16:43:52', 'new', 259.97),
+(2, 23, 12, '2026-01-17 10:15:00', 'paid', 75.00),
+(3, 23, 10, '2026-01-20 14:20:00', 'shipped', 210.00),
+(4, 23, 5, '2026-02-11 09:05:00', 'completed', 50.00),
+(5, 23, 2, '2026-02-23 16:45:00', 'cancelled', 95.00),
+(6, 23, 1, '2026-02-28 12:30:00', 'paid', 180.00),
+(7, 23, 11, '2026-03-05 11:10:00', 'shipped', 60.00),
+(8, 23, 20, '2026-03-13 18:00:00', 'completed', 130.00),
+(9, 23, 6, '2026-03-15 15:25:00', 'paid', 200.00),
+(10, 1, 3, '2026-03-01 10:00:00', 'paid', 120.00),
+(11, 2, 4, '2026-03-02 11:15:00', 'shipped', 85.50),
+(12, 3, 5, '2026-03-03 09:30:00', 'completed', 200.00),
+(13, 4, 6, '2026-03-04 14:20:00', 'new', 60.00),
+(14, 5, 7, '2026-03-05 16:45:00', 'paid', 45.00),
+(15, 6, 1, '2026-03-06 12:10:00', 'shipped', 75.00),
+(16, 7, 2, '2026-03-07 13:55:00', 'completed', 150.00),
+(17, 8, 3, '2026-03-08 09:05:00', 'new', 60.00),
+(18, 9, 4, '2026-03-09 17:25:00', 'paid', 45.00),
+(19, 10, 5, '2026-03-10 10:40:00', 'shipped', 210.00);
+
 -- --------------------------------------------------------
 
 --
@@ -463,6 +497,45 @@ CREATE TABLE `order_items` (
   `quantity` int(11) NOT NULL,
   `price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id_order_item`, `id_order`, `id_book`, `quantity`, `price`) VALUES
+(1, 1, 1, 2, 49.99),
+(2, 1, 2, 1, 39.99),
+(3, 1, 1, 2, 30.00),
+(4, 1, 2, 1, 60.00),
+(5, 2, 3, 1, 25.00),
+(6, 2, 4, 2, 25.00),
+(7, 3, 5, 3, 70.00),
+(8, 4, 6, 1, 50.00),
+(9, 5, 2, 1, 60.00),
+(10, 5, 7, 1, 35.00),
+(11, 6, 8, 2, 90.00),
+(12, 7, 9, 1, 60.00),
+(13, 8, 1, 1, 30.00),
+(14, 8, 5, 1, 100.00),
+(15, 9, 3, 2, 50.00),
+(16, 9, 6, 1, 100.00),
+(17, 10, 1, 1, 50.00),
+(18, 10, 2, 1, 70.00),
+(19, 11, 3, 1, 40.50),
+(20, 11, 4, 1, 45.00),
+(21, 12, 5, 2, 100.00),
+(22, 12, 6, 1, 0.00),
+(23, 13, 7, 1, 30.00),
+(24, 13, 8, 1, 30.00),
+(25, 14, 9, 1, 45.00),
+(26, 15, 10, 2, 37.50),
+(27, 16, 11, 1, 50.00),
+(28, 16, 12, 2, 50.00),
+(29, 17, 13, 1, 60.00),
+(30, 18, 14, 1, 45.00),
+(31, 18, 15, 1, 0.00),
+(32, 19, 16, 1, 110.00),
+(33, 19, 17, 1, 100.00);
 
 --
 -- Wyzwalacze `order_items`
@@ -545,6 +618,13 @@ CREATE TABLE `payments` (
   `status` enum('waiting','paid','failed') DEFAULT NULL,
   `payment_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id_payment`, `id_order`, `method`, `status`, `payment_date`) VALUES
+(1, 1, 'blik', 'paid', '2026-03-26 16:44:23');
 
 --
 -- Wyzwalacze `payments`
@@ -765,19 +845,19 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id_order_item` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_order_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
