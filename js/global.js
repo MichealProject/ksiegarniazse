@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Zmniejszenie ilości zapytań przy szybkim wpisywaniu
             clearTimeout(timeout);
             timeout = setTimeout(() => {
-                fetch('pages/getFavCount.php', {
+                fetch('pages/fav_components/getFavCount.php', {
                     method: 'POST',
                     headers: {'Content-Type':'application/json'},
                     body: JSON.stringify({id_book: id, quantity: quantity})
