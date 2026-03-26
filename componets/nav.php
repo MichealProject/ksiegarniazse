@@ -27,11 +27,6 @@ endif;
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link <?php echo $page === 'library' ? 'active' : ''; ?>" href="?page=library">
-                        <i class="bi bi-book-half me-1"></i> Moja biblioteka
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link <?php echo $page === 'orders' ? 'active' : ''; ?>" href="?page=orders">
                         <i class="bi bi-bag-check me-1"></i> Historia zamówień
                     </a>
