@@ -26,6 +26,7 @@
              <div class="alert alert-danger" role="alert"><?= $err ?></div>
          <?php endif; ?>
         <p class="my-3"><a href="?page=forgotten-password">Nie pamietasz hasla?</a></p>
+        <p class="my-3">Nie masz konta?<a href="?page=register">Utwórz je!</a></p>
         <button type="submit" class="btn btn-primary w-100 py-2">Zaloguj się</button>
     </form>
 </main>
