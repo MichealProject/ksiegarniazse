@@ -26,12 +26,12 @@
         <!-- Pierwsza strona formularza -->
         <div id="fPage">
             <div class="form-floating">
-                <input type="email" name="email" id="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" class="form-control">
+                <input type="email" name="email" id="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" class="form-control" placeholder="email@example.com">
                 <label for="email">Adres e-mail:</label>
                 <p id="warning"></p> <!-- Powiadomienie o błędach przy wprowadzaniu maila -->
             </div>
             <div class="form-floating position-relative">
-                <input type="password" name="pass" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}" class="form-control" onfocus="showInfo()" onblur="hideInfo()" onkeyup="checkIfValid()">
+                <input type="password" name="pass" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}" class="form-control" onfocus="showInfo()" onblur="hideInfo()" onkeyup="checkIfValid()" placeholder="Hasło">
                 <label for="password">Hasło:</label>
             </div>
             <!-- Dynamiczna informacja o wymaganiach hasła -->
@@ -43,29 +43,29 @@
                 <p id="lowerCase" class="invalid">Małą literę</p>
             </div>
             <div class="form-floating">
-                <input type="password" name="pass2" id="password2" class="form-control">
+                <input type="password" name="pass2" id="password2" class="form-control" placeholder="Powtórz hasło">
                 <label for="password2">Powtórz hasło:</label>
                 <p id="warning2"></p> <!-- Błędy związane z hasłami -->
             </div>
         </div>
         <!-- Druga strona formularza -->
         <div id="sPage">
-            <div>
+            <div class="form-floating">
+                <input type="text" name="fName" id="fName" onkeyup="submitCheck()" class="form-control" placeholder="Imię">
                 <label for="fName">Imię:</label>
-                <input type="text" name="fName" id="fName" onkeyup="submitCheck()" class="form-control">
             </div>
-            <div>
+            <div class="form-floating">
+                <input type="text" name="lName" id="lName" onkeyup="submitCheck()" class="form-control" placeholder="Nazwisko">
                 <label for="lName">Nazwisko:</label>
-                <input type="text" name="lName" id="lName" onkeyup="submitCheck()" class="form-control">
             </div>
             <div>
                 <label for="TOS">Akceptuję <a href="tos.html">warunki korzystania ze strony</a></label>
                 <input type="checkbox" name="TOS" id="TOS" onchange="submitCheck()" target="_blank">
             </div>
         </div>
-        <button type="button" id="button" onclick="nextCheck()" class="btn btn-primary">Dalej</button> <!-- Przycisk do przejścia na drugą stronę -->
-        <button type="button" id="button2" onclick="back()" class="btn btn-primary">Wróć</button> <!-- Przycisk powrotu do pierwszej strony -->
-        <button id="sButton" type="submit" disabled="true" class="btn btn-primary">Utwórz konto</button>
+        <button type="button" id="button" onclick="nextCheck()" class="btn btn-primary w-100 py-2">Dalej</button> <!-- Przycisk do przejścia na drugą stronę -->
+        <button type="button" id="button2" onclick="back()" class="btn btn-primary w-100 py-2">Wróć</button> <!-- Przycisk powrotu do pierwszej strony -->
+        <button id="sButton" type="submit" disabled="true" class="btn btn-primary w-100 py-2">Utwórz konto</button>
         <footer>Masz już konto? <a href="Flogin.php">Zaloguj się</a></footer>
     </form>
 </main>
