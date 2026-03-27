@@ -84,7 +84,7 @@ endif;
                     </li>
                 <?php elseif ($page != 'login'): ?>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-sm btn-primary ms-2 text-white" href="?page=login" title="Zaloguj się">
+                        <a class="nav-link btn btn-sm btn-primary ms-2 text-white" href="?page=userLogin" title="Zaloguj się">
                             <i class="bi bi-box-arrow-in-right"></i>
                             <span class="d-lg-inline d-none ms-1">Zaloguj</span>
                         </a>
