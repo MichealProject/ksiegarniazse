@@ -506,7 +506,7 @@ function next(){
 function emailCheck(callback){
     var formData = new FormData();
     formData.append("email",email.value.trim());
-    fetch("components/emailCheck.php",{
+    fetch("componets/emailCheck.php",{
         method: "POST",
         body: formData
     }).then(response => response.text()).then(data => {
@@ -601,52 +601,4 @@ function tabSwitch(tabId, buttonId) {
 
     localStorage.setItem("tab",tabId);
     localStorage.setItem("btn",buttonId);
-}
-
-// Włączenie edycji
-function enEdit(){
-    document.querySelectorAll('.editBtn').forEach(button => {
-        button.addEventListener('click', () => {
-            const id = button.dataset.id;
-            const row = button.closest('tr');
-            row.querySelectorAll('.colInput').forEach(input => {
-                input.style.display='inline-block';
-            });
-            row.querySelectorAll('p').forEach(p => {
-                p.style.display="none";
-            });
-            row.querySelectorAll(".cancelBtn").forEach(btn => {
-                btn.style.display="inline-block";
-            });
-            row.querySelectorAll(".delBtn").forEach(btn => {
-                btn.style.display="none";
-            });
-            button.textContent = 'Zapisz';
-            button.type = 'submit';
-        });
-    });
-}
-
-// Wyłączenie edycji
-function cancEdit(){
-    document.querySelectorAll('.cancelBtn').forEach(button => {
-        button.addEventListener('click', () => {
-            const id = button.dataset.id;
-            const row = button.closest('tr');
-            row.querySelectorAll('.colInput').forEach(input => {
-                input.style.display='none';
-            });
-            row.querySelectorAll('p').forEach(p => {
-                p.style.display="inline-block";
-            });
-            row.querySelectorAll(".editBtn").forEach(btn => {
-                btn.textContent="Edytuj";
-                btn.type="button";
-            });
-            row.querySelectorAll(".delBtn").forEach(btn => {
-                btn.style.display="inline-block";
-            });
-            button.style.display="none";
-        });
-    });
 }
